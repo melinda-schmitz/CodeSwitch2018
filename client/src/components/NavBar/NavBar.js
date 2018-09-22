@@ -16,6 +16,9 @@ const styles = {
   menuButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  loginButton: {
+	fontSize: '1.5em'
   }
 };
 
@@ -25,7 +28,11 @@ function NavBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit"><i class="fas fa-bars"></i></Button>
+		  <Typography variant="title" color="inherit" className={classes.grow}>
+            Edu Stuff To Do
+          </Typography>
+          <Button color="inherit" className={classes.loginButton}><i class="far fa-user-circle"></i></Button>
         </Toolbar>
       </AppBar>
     </div>

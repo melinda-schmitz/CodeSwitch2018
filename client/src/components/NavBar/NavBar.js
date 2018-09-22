@@ -25,7 +25,7 @@ function NavBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit"><i class="fas fa-bars"></i></Button>
         </Toolbar>
       </AppBar>
     </div>

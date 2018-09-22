@@ -13,4 +13,4 @@ const CalendarSchema = new Schema ({
 
 });
 
-module.exports = Calendar = mongoose.model('calendar', PostSchema);
+module.exports = Calendar = mongoose.model('calendar', CalendarSchema);

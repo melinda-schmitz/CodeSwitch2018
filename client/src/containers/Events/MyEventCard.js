@@ -5,6 +5,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+// Import Css
+import './Events.css';
 
 const styles = {
 	card: {
@@ -23,7 +26,7 @@ const styles = {
 	}
 };
 
-class EventCard extends Component {
+class MyEventCard extends Component {
 	render() {
 		const { classes } = this.props;
 
@@ -31,7 +34,7 @@ class EventCard extends Component {
 			<Card className={classes.card}>
 				<CardContent>
 					<Typography component="p" className={classes.eventInfo}>
-						Event: Homework Help
+						Event: Reading Buddies
 					</Typography>
 					<Typography component="p" className={classes.eventInfo}>
 						Location: Arlington Hills Library
@@ -44,12 +47,14 @@ class EventCard extends Component {
 					</Typography>
 				</CardContent>
 				<CardActions>
-					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
-					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Save Event</span><i class="far fa-save fa-2x"></i></Button>
+					<Grid container justify="flex-end">
+						<Button className="app-btn view-details" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right"></i></Button>
+						<Button className="app-btn delete-event" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i class="fas fa-trash"></i></Button>
+					</Grid>
 				</CardActions>
 			</Card >
 		)
 	}
 }
 
-export default withStyles(styles)(EventCard);
+export default withStyles(styles)(MyEventCard);

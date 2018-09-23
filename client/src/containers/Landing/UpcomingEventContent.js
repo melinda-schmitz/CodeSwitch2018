@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 const styles = {
 	upcomingEventContent: {
 		marginTop: 30,
 	},
+	btnText: {
+		marginLeft: 5,
+	}
 };
 
 class UpcomingEventContent extends Component {
@@ -24,8 +28,10 @@ class UpcomingEventContent extends Component {
 					Time: 3:30 PM
 					</Typography>
 				<Typography component="p">
-					View Details
-					</Typography>
+					<Button variant="contained" color="primary" size="small">
+						<i className="fas fa-info-circle"></i> <span className={classes.btnText}>View Details</span>
+					</Button>
+				</Typography>
 			</div>
 		)
 	}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import third-party routing library (react-router-dom)
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,7 +17,8 @@ const styles = {
 		flexGrow: 1
 	},
 	grow: {
-		flexGrow: 1
+		flexGrow: 1,
+		fontSize: 30,
 	},
 	menuButton: {
 		marginLeft: -12,
@@ -26,8 +29,12 @@ const styles = {
 	},
 	menuItem: {
 		padding: '10px 30px',
-		width: '200px'
-	}
+		width: '200px',
+		marginTop: 30,
+	},
+	menuText: {
+		marginLeft: 10,
+	},
 };
 
 class NavBar extends Component {
@@ -49,24 +56,25 @@ class NavBar extends Component {
 				<AppBar position="static" className="appbar">
 					<Toolbar>
 						<Button color="inherit" className={classes.menuButton} onClick={this.toggleDrawer('left', true)}>
-							<i class="fas fa-bars" />
+							<i className="fas fa-bars fa-2x" />
 						</Button>
-						<Typography variant="title" color="inherit" className={classes.grow}>
-							Edu Stuff To Do
+						<Typography variant="title" color="inherit" className={classes.grow} component={Link} to="/">
+							Edu To Do
             </Typography>
-						<Button color="inherit" className={classes.loginButton}>
-							<i class="far fa-user-circle" />
+						<Button color="inherit" className={classes.loginButton} component={Link} to="/profile">
+							<i className="far fa-user-circle" />
 						</Button>
 					</Toolbar>
 				</AppBar>
 
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)} containerStyle={styles.navBar}>
-					<MenuItem className={classes.menuItem}>Home</MenuItem>
-					<MenuItem className={classes.menuItem}>Events</MenuItem>
-					<MenuItem className={classes.menuItem}>Login</MenuItem>
-					<MenuItem className={classes.menuItem}>Sign-Up</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-home"></i> <span className={classes.menuText}>Home</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/events"><i className="fas fa-calendar-alt"></i><span className={classes.menuText}> Events</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/profile"><i className="fas fa-users"></i><span className={classes.menuText}>Profile</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/help"><i className="fas fa-question-circle"></i><span className={classes.menuText}>Help</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-sign-out-alt"></i><span className={classes.menuText}>Logout</span></MenuItem>
 				</Drawer>
-			</div>
+			</div >
 		);
 
 	}

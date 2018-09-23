@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+// import css file
+import './Landing.css';
 
 const styles = {
 	upcomingEventContent: {
@@ -28,7 +30,7 @@ class UpcomingEventContent extends Component {
 					Time: 3:30 PM
 					</Typography>
 				<Typography component="p">
-					<Button variant="contained" color="primary" size="small">
+					<Button variant="contained" className="view-details-btn" size="small">
 						<i className="fas fa-info-circle"></i> <span className={classes.btnText}>View Details</span>
 					</Button>
 				</Typography>

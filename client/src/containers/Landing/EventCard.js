@@ -5,6 +5,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+// import css file
+import './Landing.css';
 
 const styles = {
 	card: {
@@ -13,7 +15,8 @@ const styles = {
 		borderSize: 5,
 		borderStyle: 'solid',
 		borderWidth: 3,
-		borderColor: 'var(--app-secondary-color)',
+		borderColor: 'var(--main-bg-color)',
+		backgroundColor: 'var(--app-card-color)',
 	},
 	eventInfo: {
 		fontSize: 18,
@@ -44,8 +47,8 @@ class EventCard extends Component {
 					</Typography>
 				</CardContent>
 				<CardActions>
-					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
-					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Save Event</span><i className="far fa-save fa-2x"></i></Button>
+					<Button className="app-btn view-details-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
+					<Button className="app-btn save-event-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Save Event</span><i className="far fa-save fa-2x"></i></Button>
 				</CardActions>
 			</Card >
 		)

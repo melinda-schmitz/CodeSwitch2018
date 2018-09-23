@@ -10,6 +10,8 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormLabel from '@material-ui/core/FormLabel';
 // import placeholder profile pic
 import profilePic from '../../images/profilepic.png';
+// import Firebase
+import firebase from '../../firebase-config';
 
 const styles = {
 	profileInfo: {
@@ -42,6 +44,7 @@ class Profile extends Component {
 		ArabAmerican: false,
 		EuropeanAmerican: false,
 		MultiCultural: false,
+		preferencesRef: firebase.database().ref('preferences'),
 	};
 
 	handleChange = name => event => {
@@ -53,6 +56,43 @@ class Profile extends Component {
 	handleCulturalChange = name => event => {
 		this.setState({ [name]: event.target.checked });
 	};
+
+	// Save preferences to firebase
+	savePreference = (AfricanAmerican, AsianAmerican, LatinAmerican, ArabAmerican, EuropeanAmerican, MultiCultural) => {
+		const { preferencesRef } = this.state;
+		const newPreferenceRef = preferencesRef.push();
+		newPreferenceRef.set({
+			AfricanAmerican,
+			AsianAmerican,
+			LatinAmerican,
+			ArabAmerican,
+			EuropeanAmerican,
+		});
+	}
+
+	// On click handler for when user trys to submit story form
+	handleStorySubmit = (event) => {
+		// Prevent the form from submitting itself.
+		event.preventDefault();
+		// ES6 destructuring
+		const {
+			AfricanAmerican, AsianAmerican, LatinAmerican, ArabAmerican, EuropeanAmerican, MultiCultural
+		} = this.state;
+
+		const { user } = this.props;
+
+		// Save preferences to backend database if form is filled out.
+		// Save preference
+		this.savePreference(AfricanAmerican, AsianAmerican, LatinAmerican, ArabAmerican, EuropeanAmerican, MultiCultural);
+		// this.setState({
+		// 	formSuccess: 'Story posted successfully!',
+		// 	formSuccessMessageClass: 'form-success-message',
+		// 	title: '',
+		// 	story: '',
+		// 	titleError: '',
+		// 	storyError: '',
+		// });
+	}
 
 	render() {
 		const { classes, name, photo, uid, email } = this.props;
@@ -77,7 +117,7 @@ class Profile extends Component {
 						</Grid>
 						<Grid item xs={12} sm={12} md={8}>
 							<form>
-								<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
+								<Button variant="contained" color="primary" size="large" className="app-btn" onClick={this.handlePreferenceSubmit}><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
 								<TextField
 									id="outlined-name"
 									label="User id"

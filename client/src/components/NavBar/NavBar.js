@@ -66,7 +66,7 @@ class NavBar extends Component {
 							<i className="fas fa-bars fa-2x" />
 						</Button>
 						<Typography variant="title" color="inherit" className={classes.grow} component={Link} to="/">
-							Edu To Do
+							EduVents
             </Typography>
 						<Typography color="inherit">
 							Welcome {name}

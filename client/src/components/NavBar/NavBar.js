@@ -1,15 +1,25 @@
+// import React
 import React, { Component } from 'react';
 // import third-party routing library (react-router-dom)
 import { Link } from 'react-router-dom';
+// import prop types
 import PropTypes from 'prop-types';
+// import css styling for material ui components.
 import { withStyles } from '@material-ui/core/styles';
+// import material ui app bar components.
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+// import typography component.
 import Typography from '@material-ui/core/Typography';
+// import button component.
 import Button from '@material-ui/core/Button';
+// import drawer component
 import Drawer from '@material-ui/core/Drawer';
+//import menuitem component.
 import MenuItem from '@material-ui/core/MenuItem';
-// import css
+// import Divider component.
+import Divider from '@material-ui/core/Divider';
+// import css file for navbar
 import './NavBar.css';
 
 const styles = {
@@ -78,6 +88,10 @@ class NavBar extends Component {
 				</AppBar>
 
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)} containerStyle={styles.navBar}>
+					<Typography color="inherit" variant="display5" className={classes.menuItem}>
+						EduVents
+					</Typography>
+					<Divider />
 					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-home"></i> <span className={classes.menuText}>Home</span></MenuItem>
 					<MenuItem className={classes.menuItem} component={Link} to="/events"><i className="fas fa-calendar-alt"></i><span className={classes.menuText}> Events</span></MenuItem>
 					<MenuItem className={classes.menuItem} component={Link} to="/profile"><i className="fas fa-users"></i><span className={classes.menuText}>Profile</span></MenuItem>

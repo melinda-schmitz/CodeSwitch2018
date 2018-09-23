@@ -18,14 +18,19 @@ import Landing from './containers/Landing';
 import Footer from './components/Footer';
 // Import Event Details component
 import EventDetails from './containers/EventDetails/EventDetails';
+// import NavBar component
 import NavBar from './components/NavBar';
+// import card components
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 // import Firebase
 import { auth, provider } from './firebase-config';
+// import material ui grid layout
 import Grid from '@material-ui/core/Grid';
+// import typography
 import Typography from '@material-ui/core/Typography';
+// import css styling for material ui components.
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
@@ -35,7 +40,7 @@ const styles = {
 		borderSize: 5,
 		borderStyle: 'solid',
 		borderWidth: 3,
-		borderColor: 'var(--app-secondary-color)',
+		borderColor: 'var(--main-bg-color)',
 	},
 };
 
@@ -125,7 +130,7 @@ class App extends Component {
 								<Grid container spacing={16} justify="center" className="login-page">
 									<Grid item xs={12} sm={12} md={6}>
 										<Typography variant="display1" className="app-title">
-											Welcome to EduEvents
+											Welcome to EduVents
             				</Typography>
 										<Card className={classes.card}>
 											<CardContent>

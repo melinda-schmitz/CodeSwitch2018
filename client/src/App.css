@@ -49,7 +49,7 @@ a {
 }
 
 .sub-title {
-	font-size: 30,
+	font-size: 20px;
 }
 
 /* Google */
@@ -88,4 +88,10 @@ a {
   left: 0;
   width: 34px;
   height: 100%;
+}
+
+.logo {
+	background-size: cover;
+	width: 450px;
+	height: 450px;
 }

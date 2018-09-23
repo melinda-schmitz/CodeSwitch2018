@@ -21,6 +21,10 @@ const styles = {
   },
   loginButton: {
     fontSize: '1.5em'
+  },
+  menuItem: {
+    padding: '10px 30px',
+    width: '200px'
   }
 };
 
@@ -55,8 +59,10 @@ class NavBar extends Component{
         </AppBar>
     
         <Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)} containerStyle={styles.navBar}>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
+          <MenuItem className={classes.menuItem}>Home</MenuItem>
+          <MenuItem className={classes.menuItem}>Events</MenuItem>
+          <MenuItem className={classes.menuItem}>Login</MenuItem>
+          <MenuItem className={classes.menuItem}>Sign-Up</MenuItem>
         </Drawer>
       </div>
     );

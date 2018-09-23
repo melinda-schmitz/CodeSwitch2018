@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Star Wars Masks and Light Sabers!",
+        "location": "Rum River Library",
+        "date": "Semptember 25th, 2018",
+        "time": "4:30 PM",
+        "url": "https://melsaanoka.evanced.info/signup/EventDetails?EventId=22707&backTo=Calendar&startDate=2018/09/23"
+    },
+    {
+        "id": 2,
+        "name": "Polymer Clay Creatures",
+        "location": "Johnsville Library",
+        "description":"Learn how to layer colored clay so that when you slice it a design appears.  These slices are then used to make a colorful animal sculpture about 2 inches tall of your choice.  Then take it home and bake it in your own oven to harden the clay!   This program is made possible by the Minnesota Arts and Cultural Heritage Fund.",
+        "date": "September 29th, 2018",
+        "time": "10:30 AM",
+        "url": "https://melsaanoka.evanced.info/signup/EventDetails?EventId=22629&backTo=Calendar&startDate=2018/09/23"
+    },
+    {
+        "id": 3,
+        "name": "LEGO Challenge",
+        "location": "Rum River Library",
+        "date": "September 29th, 2018",
+        "time": "4:30 AM",
+        "url": "https://melsaanoka.evanced.info/signup/EventDetails?EventId=20736&backTo=Calendar&startDate=2018/09/23"
+    },
+    {
+        "id": 4,
+        "name": "Early Readers Club",
+        "description": "Designed for very beginning readers to practice phonics and sight words in a fun, engaging environment. For children in grades K-2.",
+        "location": "Northtown Library",
+        "date": "OCtober 1st, 2018",
+        "time": "5:00 PM",
+        "url": "https://melsaanoka.evanced.info/signup/EventDetails?EventId=22550&backTo=Calendar&startDate=2018/10/01"
+    }
+]

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
@@ -33,7 +34,7 @@ class UpcomingEventContent extends Component {
 							Time: {item.time}
 							</Typography>
 						<Typography component="p">
-							<Button variant="contained" className="view-details-btn" size="small">
+							<Button variant="contained" className="view-details-btn" size="small" component={Link} to="/eventDetails">
 								<i className="fas fa-info-circle"></i> <span className={classes.btnText}>View Details</span>
 							</Button>
 						</Typography>

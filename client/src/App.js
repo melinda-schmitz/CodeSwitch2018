@@ -18,6 +18,8 @@ import Landing from './containers/Landing';
 import Help from './containers/Help';
 // Import Foooter component
 import Footer from './components/Footer';
+// Import Event Details component
+import EventDetails from './containers/EventDetails/EventDetails';
 // import NavBar component
 import NavBar from './components/NavBar';
 // import card components
@@ -124,6 +126,7 @@ class App extends Component {
 										<Route exact path="/add" component={AddEvent} />
 										<Route exact path="/help" component={Help} />
 										<Route exact path="/login" component={Login} />
+										<Route exact path="/eventDetails" component={EventDetails} />
 									</Switch>
 								</div>
 							</div>

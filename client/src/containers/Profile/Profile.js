@@ -4,6 +4,10 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormLabel from '@material-ui/core/FormLabel';
 // import placeholder profile pic
 import profilePic from '../../images/profilepic.png';
 
@@ -32,10 +36,12 @@ const styles = {
 
 class Profile extends Component {
 	state = {
-		name: 'John',
-		email: 'john@example.com',
-		password: '********',
-		fullName: 'John Doe',
+		AfricanAmerican: false,
+		AsianAmerican: false,
+		LatinAmerican: false,
+		ArabAmerican: false,
+		EuropeanAmerican: false,
+		MultiCultural: false,
 	};
 
 	handleChange = name => event => {
@@ -44,8 +50,13 @@ class Profile extends Component {
 		});
 	};
 
+	handleCulturalChange = name => event => {
+		this.setState({ [name]: event.target.checked });
+	};
+
 	render() {
 		const { classes, name, photo, uid, email } = this.props;
+		const { AfricanAmerican, AsianAmerican, LatinAmerican, ArabAmerican, EuropeanAmerican, MultiCultural } = this.state;
 		console.log(this.props);
 
 		return (
@@ -65,37 +76,94 @@ class Profile extends Component {
 						<Grid item xs={12} sm={12} md={4}>
 						</Grid>
 						<Grid item xs={12} sm={12} md={8}>
-							<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
-							<TextField
-								id="outlined-name"
-								label="User id"
-								className={classes.textField}
-								value={uid}
-								margin="normal"
-								variant="outlined"
-								fullWidth
-								disabled
-							/>
-							<TextField
-								id="outlined-name"
-								label="Full Name"
-								className={classes.textField}
-								value={name}
-								margin="normal"
-								variant="outlined"
-								fullWidth
-								disabled
-							/>
-							<TextField
-								id="outlined-name"
-								label="Email"
-								className={classes.textField}
-								value={email}
-								margin="normal"
-								variant="outlined"
-								fullWidth
-								disabled
-							/>
+							<form>
+								<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
+								<TextField
+									id="outlined-name"
+									label="User id"
+									className={classes.textField}
+									value={uid}
+									margin="normal"
+									variant="outlined"
+									fullWidth
+									disabled
+								/>
+								<TextField
+									id="outlined-name"
+									label="Full Name"
+									className={classes.textField}
+									value={name}
+									margin="normal"
+									variant="outlined"
+									fullWidth
+									disabled
+								/>
+								<TextField
+									id="outlined-name"
+									label="Email"
+									className={classes.textField}
+									value={email}
+									margin="normal"
+									variant="outlined"
+									fullWidth
+									disabled
+								/>
+								<FormGroup className={classes.textField}>
+									<FormLabel component="legend">Type of activities you are currently looking for</FormLabel>
+									<FormControlLabel
+										control={
+											<Checkbox checked={AfricanAmerican} onChange={this.handleCulturalChange('AfricanAmerican')} value="African American" />
+										}
+										label="African American"
+									/>
+									<FormControlLabel
+										control={
+											<Checkbox checked={AsianAmerican} onChange={this.handleCulturalChange('AsianAmerican')} value="AsianAmerican" />
+										}
+										label="Asian American"
+									/>
+									<FormControlLabel
+										control={
+											<Checkbox
+												checked={LatinAmerican}
+												onChange={this.handleCulturalChange('LatinAmerican')}
+												value="LatinAmerican"
+											/>
+										}
+										label="Latin American"
+									/>
+									<FormControlLabel
+										control={
+											<Checkbox
+												checked={ArabAmerican}
+												onChange={this.handleCulturalChange('ArabAmerican')}
+												value="ArabAmerican"
+											/>
+										}
+										label="Arab American"
+									/>
+									<FormControlLabel
+										control={
+											<Checkbox
+												checked={EuropeanAmerican}
+												onChange={this.handleCulturalChange('EuropeanAmerican')}
+												value="EuropeanAmerican"
+											/>
+										}
+										label="European American"
+									/>
+									<FormControlLabel
+										control={
+											<Checkbox
+												checked={MultiCultural}
+												onChange={this.handleCulturalChange('MultiCultural')}
+												value="MultiCultural"
+											/>
+										}
+										label="Multi Cultural"
+									/>
+								</FormGroup>
+							</form>
 						</Grid>
 					</Grid>
 				</div >

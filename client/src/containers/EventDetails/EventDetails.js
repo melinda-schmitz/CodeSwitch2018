@@ -6,6 +6,7 @@ class EventDetails extends Component {
 		return (
 			<div>
 				<h1>Event Details</h1>
+				
 			</div>
 		)
 	}

@@ -20,6 +20,8 @@ import Login from './containers/Login';
 import Landing from './containers/Landing';
 // Import Foooter component
 import Footer from './components/Footer';
+// Import Event Details component
+import EventDetails from './containers/EventDetails/EventDetails';
 
 class App extends Component {
 	render() {
@@ -34,6 +36,7 @@ class App extends Component {
 							<Route exact path="/profile" component={Profile} />
 							<Route exact path="/add" component={AddEvent} />
 							<Route exact path="/login" component={Login} />
+							<Route exact path="/details" component={EventDetails} />
 						</Switch>
 						<Footer />
 					</div>

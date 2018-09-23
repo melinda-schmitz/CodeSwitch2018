@@ -16,7 +16,7 @@ const styles = {
 		borderSize: 5,
 		borderStyle: 'solid',
 		borderWidth: 3,
-		borderColor: 'var(--app-secondary-color)',
+		borderColor: 'var(--main-bg-color)',
 	},
 	eventInfo: {
 		fontSize: 18,
@@ -48,8 +48,8 @@ class MyEventCard extends Component {
 				</CardContent>
 				<CardActions>
 					<Grid container justify="flex-end">
-						<Button className="app-btn view-details" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right"></i></Button>
-						<Button className="app-btn delete-event" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
+						<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right"></i></Button>
+						<Button className="app-btn delete-event save-event-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
 					</Grid>
 				</CardActions>
 			</Card >

@@ -27,7 +27,7 @@ class Landing extends Component {
 							<UpcomingEvents />
 						</Grid>
 					</Grid>
-					<Button variant="contained" color="primary" size="large" className="app-btn">View More...</Button>
+					<Button variant="contained" color="primary" size="large" className="app-btn view-details-btn">View More...</Button>
 				</div >
 			</div>
 		)

@@ -9,6 +9,8 @@ import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 // import placeholder profile pic
 import profilePic from '../../images/profilepic.png';
+// Import NavBar component
+import NavBar from '../../components/NavBar';
 
 const styles = {
 	profileInfo: {
@@ -44,65 +46,68 @@ class Profile extends Component {
 		const { classes } = this.props;
 
 		return (
-			<div className="main-content-section">
-				<h1>User: john</h1>
-				<Grid container spacing={16}>
-					<Grid item xs={12} sm={12} md={4}>
-						<img src={profilePic} alt="profile pic" className={classes.profilePic} />
+			<div>
+				<NavBar />
+				<div className="main-content-section">
+					<h1>User: john</h1>
+					<Grid container spacing={16}>
+						<Grid item xs={12} sm={12} md={4}>
+							<img src={profilePic} alt="profile pic" className={classes.profilePic} />
+						</Grid>
+						<Grid item xs={12} sm={12} md={8}>
+							<h1>John Doe</h1>
+							<h3>john@example.com</h3>
+						</Grid>
 					</Grid>
-					<Grid item xs={12} sm={12} md={8}>
-						<h1>John Doe</h1>
-						<h3>john@example.com</h3>
+					<Grid container spacing={16}>
+						<Grid item xs={12} sm={12} md={4}>
+						</Grid>
+						<Grid item xs={12} sm={12} md={8}>
+							<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
+							<TextField
+								id="outlined-name"
+								label="Username"
+								className={classes.textField}
+								value={this.state.name}
+								onChange={this.handleChange('name')}
+								margin="normal"
+								variant="outlined"
+								fullWidth
+							/>
+							<TextField
+								id="outlined-name"
+								label="Email"
+								className={classes.textField}
+								value={this.state.email}
+								onChange={this.handleChange('email')}
+								margin="normal"
+								variant="outlined"
+								fullWidth
+							/>
+							<TextField
+								id="outlined-name"
+								label="Password"
+								className={classes.textField}
+								value={this.state.password}
+								onChange={this.handleChange('password')}
+								margin="normal"
+								variant="outlined"
+								fullWidth
+							/>
+							<TextField
+								id="outlined-name"
+								label="Full Name"
+								className={classes.textField}
+								value={this.state.fullName}
+								onChange={this.handleChange('fullName')}
+								margin="normal"
+								variant="outlined"
+								fullWidth
+							/>
+						</Grid>
 					</Grid>
-				</Grid>
-				<Grid container spacing={16}>
-					<Grid item xs={12} sm={12} md={4}>
-					</Grid>
-					<Grid item xs={12} sm={12} md={8}>
-						<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
-						<TextField
-							id="outlined-name"
-							label="Username"
-							className={classes.textField}
-							value={this.state.name}
-							onChange={this.handleChange('name')}
-							margin="normal"
-							variant="outlined"
-							fullWidth
-						/>
-						<TextField
-							id="outlined-name"
-							label="Email"
-							className={classes.textField}
-							value={this.state.email}
-							onChange={this.handleChange('email')}
-							margin="normal"
-							variant="outlined"
-							fullWidth
-						/>
-						<TextField
-							id="outlined-name"
-							label="Password"
-							className={classes.textField}
-							value={this.state.password}
-							onChange={this.handleChange('password')}
-							margin="normal"
-							variant="outlined"
-							fullWidth
-						/>
-						<TextField
-							id="outlined-name"
-							label="Full Name"
-							className={classes.textField}
-							value={this.state.fullName}
-							onChange={this.handleChange('fullName')}
-							margin="normal"
-							variant="outlined"
-							fullWidth
-						/>
-					</Grid>
-				</Grid>
-			</div >
+				</div >
+			</div>
 		)
 	}
 }

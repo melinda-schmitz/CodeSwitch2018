@@ -22,6 +22,7 @@ body {
 .main-content-section {
 	margin: 2rem;
 	min-height: calc(100vh - 60px);
+	margin-top: 4rem;
 }
 
 .app-btn {

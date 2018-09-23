@@ -37,16 +37,19 @@ class Login extends Component {
 
 		return (
 			<div className="main-content-section">
-				<Grid container spacing={16} justify="center">
-					<Grid item xs={12} justify="center">
+				<Grid container spacing={16}>
+					<Grid item xs={12} sm={12} md={6}>
 						<Typography variant="display1">
-							<i className="fas fa-lock"></i> LOGIN
+							Welcome to EDU To Do
             </Typography>
 					</Grid>
-					<Grid>
+					<Grid item xs={12} sm={12} md={6}>
 						<form onSubmit={this.onSubmit}>
+							<Typography variant="display1">
+								<i className="fas fa-lock"></i> LOGIN
+            </Typography>
 							<TextField
-								id="outlined-name"
+								id="email"
 								label="Email"
 								className={classes.textField}
 								value={this.state.email}
@@ -56,7 +59,7 @@ class Login extends Component {
 								fullWidth
 							/>
 							<TextField
-								id="outlined-name"
+								id="password"
 								label="Password"
 								className={classes.textField}
 								value={this.state.password}
@@ -70,7 +73,7 @@ class Login extends Component {
 						</form>
 					</Grid>
 				</Grid>
-			</div>
+			</div >
 		)
 	}
 }

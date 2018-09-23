@@ -15,6 +15,8 @@ import AddEvent from './containers/AddEvent';
 import Login from './containers/Login';
 // Import Landing page
 import Landing from './containers/Landing';
+// Import Event View profile page
+import EventView from './components/EventsView';
 
 class App extends Component {
 	render() {
@@ -23,6 +25,7 @@ class App extends Component {
 				<Router>
 					<div>
 						<NavBar />
+						<EventView/>
 						<Switch>
 							<Route exact path="/" component={Landing} />
 							<Route exact path="/events" component={Events} />

@@ -1,0 +1,7 @@
+#main-footer {
+	text-align: center;
+	padding: 1rem;
+	background: var(--main-bg-color);
+	color: var(--app-secondary-color);
+	height: 60px;
+}

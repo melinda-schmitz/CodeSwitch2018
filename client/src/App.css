@@ -1,3 +1,14 @@
+:root {
+	/* --main-bg-color: #444; */
+	--background-opacity: 0.9;
+	--main-bg-color: rgba(0, 20, 40, 0.9);
+	--app-secondary-color: #7bad7b;
+	--app-light-color: #fff;
+	--app-dark-color: black;
+	--app-transparent-color: rgba(0, 0, 0, 0);
+	--app-card-color: #c2c5cc;
+}
+
 .main-content-section {
 	margin: 2rem;
 }

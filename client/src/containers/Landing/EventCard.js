@@ -10,7 +10,14 @@ const styles = {
 	card: {
 		minWidth: 275,
 		marginTop: 30,
+		borderSize: 5,
+		borderStyle: 'solid',
+		borderWidth: 4,
+		borderColor: 'var(--app-secondary-color)',
+		backgroundColor: 'var(--app-card-color)',
 	},
+	eventInfo: {
+	}
 };
 
 class EventCard extends Component {
@@ -20,7 +27,7 @@ class EventCard extends Component {
 		return (
 			<Card className={classes.card}>
 				<CardContent>
-					<Typography component="p">
+					<Typography component="p" >
 						Event: Homework Help
 								</Typography>
 					<Typography component="p">
@@ -35,7 +42,7 @@ class EventCard extends Component {
 				</CardContent>
 				<CardActions>
 					<Button size="small">View Details</Button>
-					<Button size="small">Add Button</Button>
+					<Button size="small">Add Event</Button>
 				</CardActions>
 			</Card>
 		)

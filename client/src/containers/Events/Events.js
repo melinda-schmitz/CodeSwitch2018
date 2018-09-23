@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 class Events extends Component {
 	render() {
 		return (
-			<div>
+			<div className="main-content-section">
 				<h1>Events</h1>
 			</div>
 		)

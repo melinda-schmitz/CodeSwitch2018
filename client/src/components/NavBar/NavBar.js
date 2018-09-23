@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import third-party routing library (react-router-dom)
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -52,19 +54,19 @@ class NavBar extends Component {
 							<i class="fas fa-bars" />
 						</Button>
 						<Typography variant="title" color="inherit" className={classes.grow}>
-							Edu Stuff To Do
+							Edu To Do
             </Typography>
-						<Button color="inherit" className={classes.loginButton}>
+						<Button color="inherit" className={classes.loginButton} component={Link} to="/profile">
 							<i class="far fa-user-circle" />
 						</Button>
 					</Toolbar>
 				</AppBar>
 
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)} containerStyle={styles.navBar}>
-					<MenuItem className={classes.menuItem}>Home</MenuItem>
-					<MenuItem className={classes.menuItem}>Events</MenuItem>
-					<MenuItem className={classes.menuItem}>Login</MenuItem>
-					<MenuItem className={classes.menuItem}>Sign-Up</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/">Home</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/events">Events</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/profile">Profile</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/">Logout</MenuItem>
 				</Drawer>
 			</div>
 		);

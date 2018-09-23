@@ -14,6 +14,8 @@ import AddEvent from './containers/AddEvent';
 import Login from './containers/Login';
 // Import Landing page
 import Landing from './containers/Landing';
+// Import Help page
+import Help from './containers/Help';
 // Import Foooter component
 import Footer from './components/Footer';
 // import NavBar component
@@ -30,6 +32,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 // import css styling for material ui components.
 import { withStyles } from '@material-ui/core/styles';
+// import Logo
+import logo from './images/edue_logo.png';
 
 const styles = {
 	card: {
@@ -118,6 +122,7 @@ class App extends Component {
 										<Route exact path="/profile" render={props => <Profile
 											{...props} name={user.displayName} email={user.email} photo={user.photoURL} uid={user.uid}></Profile>} />
 										<Route exact path="/add" component={AddEvent} />
+										<Route exact path="/help" component={Help} />
 										<Route exact path="/login" component={Login} />
 									</Switch>
 								</div>
@@ -126,6 +131,9 @@ class App extends Component {
 						: (
 							<div className="main-content-section">
 								<Grid container spacing={16} justify="center" className="login-page">
+									<Grid item xs={12} sm={12} md={6}>
+										<img src={logo} alt="team logo" className="logo"></img>
+									</Grid>
 									<Grid item xs={12} sm={12} md={6}>
 										<Typography variant="display1" className="app-title">
 											Welcome to EduVents

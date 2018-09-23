@@ -1,6 +1,28 @@
 import React, { Component, selected } from 'react'
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 
+const styles = {
+  "menu-item": {
+    padding: 0 40,
+    margin: 5 10,
+    user-select: none,
+    cursor: pointer,
+    border: none,
+    background: blue,
+  }
+  "menu-item-wrapper.active": {
+    border: 1 blue solid,
+  }
+  "menu-item.active": {
+    border: 1 green solid
+  }
+
+  "scroll-menu-arrow": {
+    padding: 20,
+    cursor: pointer,
+  }
+}
+
 const list = [
   { name: 'item1' },
   { name: 'item2' },

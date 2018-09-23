@@ -1,1 +1,1 @@
-export default from './EventThumbNail';
+export { default } from './EventThumbNail';

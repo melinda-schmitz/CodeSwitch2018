@@ -41,10 +41,10 @@ class EventCard extends Component {
 								</Typography>
 				</CardContent>
 				<CardActions>
-					<Button size="small">View Details</Button>
+					<Button size="small"> View Details <i className="far fa-arrow-alt-circle-right"></i></Button>
 					<Button size="small">Add Event</Button>
 				</CardActions>
-			</Card>
+			</Card >
 		)
 	}
 }

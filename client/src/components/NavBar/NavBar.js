@@ -53,7 +53,7 @@ class NavBar extends Component {
 						<Button color="inherit" className={classes.menuButton} onClick={this.toggleDrawer('left', true)}>
 							<i class="fas fa-bars" />
 						</Button>
-						<Typography variant="title" color="inherit" className={classes.grow}>
+						<Typography variant="title" color="inherit" className={classes.grow} >
 							Edu To Do
             </Typography>
 						<Button color="inherit" className={classes.loginButton} component={Link} to="/profile">

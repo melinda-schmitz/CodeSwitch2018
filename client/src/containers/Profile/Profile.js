@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 // import placeholder profile pic
 import profilePic from '../../images/profilepic.png';
 
@@ -20,6 +21,19 @@ const styles = {
 };
 
 class Profile extends Component {
+	state = {
+		name: 'John',
+		email: 'john@example.com',
+		password: '********',
+		fullName: 'John Doe',
+	};
+
+	handleChange = name => event => {
+		this.setState({
+			[name]: event.target.value,
+		});
+	};
+
 	render() {
 		const { classes } = this.props;
 
@@ -37,32 +51,49 @@ class Profile extends Component {
 				</Grid>
 				<Grid container spacing={16}>
 					<Grid item xs={12} sm={12} md={4}>
-						<Typography component="p" className={classes.profileInfo} >
-							Username
-								</Typography>
-						<Typography component="p" className={classes.profileInfo}>
-							Email
-								</Typography>
-						<Typography component="p" className={classes.profileInfo}>
-							Password
-								</Typography>
-						<Typography component="p" className={classes.profileInfo}>
-							Full Name
-								</Typography>
+						<Button size="large"><i className="fas fa-check"></i>{' '}Save</Button>
 					</Grid>
 					<Grid item xs={12} sm={12} md={8}>
-						<Typography component="p" className={classes.profileInfo} >
-							john
-								</Typography>
-						<Typography component="p" className={classes.profileInfo}>
-							john@example.com
-								</Typography>
-						<Typography component="p" className={classes.profileInfo}>
-							***************
-								</Typography>
-						<Typography component="p" className={classes.profileInfo}>
-							John Doe
-								</Typography>
+						<TextField
+							id="outlined-name"
+							label="Username"
+							className={classes.textField}
+							value={this.state.name}
+							onChange={this.handleChange('name')}
+							margin="normal"
+							variant="outlined"
+							fullWidth
+						/>
+						<TextField
+							id="outlined-name"
+							label="Email"
+							className={classes.textField}
+							value={this.state.email}
+							onChange={this.handleChange('email')}
+							margin="normal"
+							variant="outlined"
+							fullWidth
+						/>
+						<TextField
+							id="outlined-name"
+							label="Password"
+							className={classes.textField}
+							value={this.state.password}
+							onChange={this.handleChange('password')}
+							margin="normal"
+							variant="outlined"
+							fullWidth
+						/>
+						<TextField
+							id="outlined-name"
+							label="Full Name"
+							className={classes.textField}
+							value={this.state.fullName}
+							onChange={this.handleChange('fullName')}
+							margin="normal"
+							variant="outlined"
+							fullWidth
+						/>
 					</Grid>
 				</Grid>
 			</div >

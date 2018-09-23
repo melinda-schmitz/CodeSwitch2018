@@ -112,7 +112,10 @@ class App extends Component {
 									</Grid>
 									<Grid item xs={12} sm={12} md={6}>
 										<Typography variant="display1">
-											<i className="fas fa-lock"></i> LOGIN
+											LOGIN
+            					</Typography>
+										<Typography variant="display3">
+											<i className="fas fa-lock"></i> Log in to find fun, educational activities and events to do with your kids.
             					</Typography>
 										<div className="login">
 											<p>Login with Google to continue to site.</p>

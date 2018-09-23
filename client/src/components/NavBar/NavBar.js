@@ -17,7 +17,8 @@ const styles = {
 		flexGrow: 1
 	},
 	grow: {
-		flexGrow: 1
+		flexGrow: 1,
+		fontSize: 30,
 	},
 	menuButton: {
 		marginLeft: -12,
@@ -28,8 +29,12 @@ const styles = {
 	},
 	menuItem: {
 		padding: '10px 30px',
-		width: '200px'
-	}
+		width: '200px',
+		marginTop: 30,
+	},
+	menuText: {
+		marginLeft: 10,
+	},
 };
 
 class NavBar extends Component {
@@ -51,9 +56,9 @@ class NavBar extends Component {
 				<AppBar position="static" className="appbar">
 					<Toolbar>
 						<Button color="inherit" className={classes.menuButton} onClick={this.toggleDrawer('left', true)}>
-							<i class="fas fa-bars" />
+							<i class="fas fa-bars fa-2x" />
 						</Button>
-						<Typography variant="title" color="inherit" className={classes.grow} >
+						<Typography variant="title" color="inherit" className={classes.grow} component={Link} to="/">
 							Edu To Do
             </Typography>
 						<Button color="inherit" className={classes.loginButton} component={Link} to="/profile">
@@ -63,12 +68,13 @@ class NavBar extends Component {
 				</AppBar>
 
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)} containerStyle={styles.navBar}>
-					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-home"></i> Home</MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/events"><i className="fas fa-calendar-alt"></i> Events</MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/profile"><i className="fas fa-users"></i> Profile</MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-sign-out-alt"></i> Logout</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-home"></i> <span className={classes.menuText}>Home</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/events"><i className="fas fa-calendar-alt"></i><span className={classes.menuText}> Events</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/profile"><i className="fas fa-users"></i><span className={classes.menuText}>Profile</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/help"><i className="fas fa-question-circle"></i><span className={classes.menuText}>Help</span></MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-sign-out-alt"></i><span className={classes.menuText}>Logout</span></MenuItem>
 				</Drawer>
-			</div>
+			</div >
 		);
 
 	}

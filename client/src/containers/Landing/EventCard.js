@@ -12,11 +12,14 @@ const styles = {
 		marginTop: 30,
 		borderSize: 5,
 		borderStyle: 'solid',
-		borderWidth: 4,
+		borderWidth: 3,
 		borderColor: 'var(--app-secondary-color)',
-		backgroundColor: 'var(--app-card-color)',
 	},
 	eventInfo: {
+		fontSize: 18,
+	},
+	btnText: {
+		marginRight: 10,
 	}
 };
 
@@ -27,22 +30,22 @@ class EventCard extends Component {
 		return (
 			<Card className={classes.card}>
 				<CardContent>
-					<Typography component="p" >
+					<Typography component="p" className={classes.eventInfo}>
 						Event: Homework Help
-								</Typography>
-					<Typography component="p">
+					</Typography>
+					<Typography component="p" className={classes.eventInfo}>
 						Location: Arlington Hills Library
-								</Typography>
-					<Typography component="p">
+					</Typography>
+					<Typography component="p" className={classes.eventInfo}>
 						Date: September 23, 2018
-								</Typography>
-					<Typography component="p">
+					</Typography>
+					<Typography component="p" className={classes.eventInfo}>
 						Time: 3:30 PM
-								</Typography>
+					</Typography>
 				</CardContent>
 				<CardActions>
-					<Button size="small"> View Details <i className="far fa-arrow-alt-circle-right"></i></Button>
-					<Button size="small">Add Event</Button>
+					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
+					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Save Event</span><i class="far fa-save fa-2x"></i></Button>
 				</CardActions>
 			</Card >
 		)

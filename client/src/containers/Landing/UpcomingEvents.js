@@ -11,6 +11,9 @@ const styles = {
 	card: {
 		minWidth: 275,
 		marginTop: 30,
+		borderStyle: 'solid',
+		borderWidth: 3,
+		borderColor: 'var(--app-secondary-color)',
 	},
 };
 
@@ -26,7 +29,7 @@ class UpcomingEvents extends Component {
 					<UpcomingEventContent />
 				</CardContent>
 				<CardActions>
-					<Button size="small">View More</Button>
+					<Button variant="contained" color="primary" size="large" className="app-btn">View More...</Button>
 				</CardActions>
 			</Card>
 		)

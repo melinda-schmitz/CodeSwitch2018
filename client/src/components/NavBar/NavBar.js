@@ -63,10 +63,10 @@ class NavBar extends Component {
 				</AppBar>
 
 				<Drawer open={this.state.left} onClose={this.toggleDrawer('left', false)} containerStyle={styles.navBar}>
-					<MenuItem className={classes.menuItem} component={Link} to="/">Home</MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/events">Events</MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/profile">Profile</MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/">Logout</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-home"></i> Home</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/events"><i className="fas fa-calendar-alt"></i> Events</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/profile"><i className="fas fa-users"></i> Profile</MenuItem>
+					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-sign-out-alt"></i> Logout</MenuItem>
 				</Drawer>
 			</div>
 		);

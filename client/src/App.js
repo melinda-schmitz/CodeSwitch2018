@@ -107,7 +107,7 @@ class App extends Component {
 								<Grid container spacing={16}>
 									<Grid item xs={12} sm={12} md={6}>
 										<Typography variant="display1">
-											Welcome to EDU To Do
+											Welcome to EduEvents
             				</Typography>
 									</Grid>
 									<Grid item xs={12} sm={12} md={6}>

@@ -17,10 +17,25 @@ import Landing from './containers/Landing';
 // Import Foooter component
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 // import Firebase
 import { auth, provider } from './firebase-config';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = {
+	card: {
+		minWidth: 275,
+		marginTop: 50,
+		borderSize: 5,
+		borderStyle: 'solid',
+		borderWidth: 3,
+		borderColor: 'var(--app-secondary-color)',
+	},
+};
 
 class App extends Component {
 	constructor() {
@@ -82,6 +97,7 @@ class App extends Component {
 
 	render() {
 		const { user } = this.state;
+		const { classes } = this.props;
 		console.log(user);
 		return (<div className="App">
 			<Router>
@@ -104,25 +120,27 @@ class App extends Component {
 						)
 						: (
 							<div className="main-content-section">
-								<Grid container spacing={16}>
+								<Grid container spacing={16} justify="center" className="login-page">
 									<Grid item xs={12} sm={12} md={6}>
-										<Typography variant="display1">
+										<Typography variant="display1" className="app-title">
 											Welcome to EduEvents
             				</Typography>
-									</Grid>
-									<Grid item xs={12} sm={12} md={6}>
-										<Typography variant="display1">
-											LOGIN
+										<Card className={classes.card}>
+											<CardContent>
+												<Typography variant="display1">
+													LOGIN
             					</Typography>
-										<Typography variant="display3">
-											<i className="fas fa-lock"></i> Log in to find fun, educational activities and events to do with your kids.
+												<Typography variant="p" className="sub-title">
+													Log in to find fun, educational activities and events to do with your kids.
             					</Typography>
-										<div className="login">
-											<p>Login with Google to continue to site.</p>
-											<button type="submit" className="loginBtn loginBtn--google" onClick={this.login}>
-												Login with Google
+												<div className="login">
+													<p>Login with Google to continue to site.</p>
+													<button type="submit" className="loginBtn loginBtn--google" onClick={this.login}>
+														Login with Google
                       </button>
-										</div>
+												</div>
+											</CardContent>
+										</Card>
 									</Grid>
 								</Grid>
 							</div >
@@ -136,35 +154,4 @@ class App extends Component {
 }
 
 
-export default App;
-
-
-// 	<div className="App">
-// 		<div>
-// 			<Router>
-// 				<div>
-// 					{user
-// 						? (
-// 							<div>
-// 								<Switch>
-// 									<Route exact path="/" component={Landing} />
-// 									<Route exact path="/events" component={Events} />
-// 									<Route exact path="/profile" component={Profile} />
-// 									<Route exact path="/add" component={AddEvent} />
-// 									<Route exact path="/login" component={Login} />
-// 								</Switch>
-// 							</div>
-// 						)
-// 						: (
-// 							<button type="submit" className="loginBtn loginBtn--google" onClick={this.login}>
-// 								Login with Google
-//                       </button>
-// 						)}
-// 					<Footer />
-// 				</div>
-// 			</Router>
-// 		</div>
-// 	</div>
-// 		);
-// 	}
-// }
+export default withStyles(styles)(App);

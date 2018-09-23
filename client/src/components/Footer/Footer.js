@@ -7,7 +7,7 @@ class Footer extends Component {
 	render() {
 		return (
 			<footer id="main-footer">
-				EDU To Do <br />
+				EduEvents <br />
 				Copyright &copy; 2018
 			</footer>
 		);

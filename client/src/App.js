@@ -126,6 +126,7 @@ class App extends Component {
 										<Route exact path="/add" component={AddEvent} />
 										<Route exact path="/help" component={Help} />
 										<Route exact path="/login" component={Login} />
+										<Route exact path="/eventDetails" component={EventDetails} />
 									</Switch>
 								</div>
 							</div>

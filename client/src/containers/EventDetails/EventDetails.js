@@ -9,29 +9,30 @@ class EventDetails extends Component {
       <div>
         <h1>Event Details</h1>
         <div className="section">
-          <b>Event:</b> <br />
-          <b>Location:</b> <br />
-          <b>Date:</b> <br />
-          <b>Time:</b> <br />
-          <b>Ages:</b> <br />
+          <b>Event:</b> Charlotte's Web @ Stages Theatre (Pay What You Can performance)<br />
+          <b>Location:</b> 1111 Mainstreet, Hopkins, MN, 55343, United States<br />
+          <b>Date:</b> September 23rd, 2018<br />
+          <b>Time:</b> 1:00 PM<br />
+          <b>Ages:</b> All Ages<br />
           <br />
-          <b>Description:</b>
+          <b>Description: </b>
+          Patrons can reserve up to SIX (6) tickets at no cost. Patron/Households can reserve tickets to a maximum of THREE (3) pay-what-you-can productions per season. The day of the performance you can “pay-what-you-can” by making a donation of any amount on your way into the theater.
           <br />
           <br />
           <br />
           <br />
-          <Button variant="contained">
+          <Button variant="contained" className="padRight">
             Go Back
           </Button>
           <Button
             variant="contained"
-            color="primary"
+            color="primary" className="padRight"
           >
            <i class="fa fa-map-o" aria-hidden="true"></i>  Directions
           </Button>
           <Button
             variant="contained"
-            color="primary"
+            color="primary"  className="padRight"
           >
             Add Event
           </Button>

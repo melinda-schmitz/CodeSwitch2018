@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -52,7 +53,7 @@ class EventCard extends Component {
 						</CardContent>
 						<CardActions>
 						<Grid container justify="flex-end">
-						<Button className="app-btn view-details-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
+						<Button className="app-btn view-details-btn" variant="contained" color="primary" size="small" component={Link} to="/eventDetails"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
 						<Button className="app-btn delete-event-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
 						</Grid>
 						</CardActions>

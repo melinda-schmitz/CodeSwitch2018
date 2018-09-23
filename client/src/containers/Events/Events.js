@@ -10,7 +10,6 @@ class Events extends Component {
 	render() {
 		return (
 			<div>
-				<NavBar />
 				<div className="main-content-section">
 					<Grid container spacing={16}>
 						<Grid item xs={12} sm={12} md={8}>

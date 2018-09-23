@@ -1,24 +1,26 @@
 // import React
 import React, { Component } from 'react'
 import Grid from '@material-ui/core/Grid';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 // import placeholder profile pic
 import profilePic from '../../images/profilepic.png';
-// Import NavBar component
-import NavBar from '../../components/NavBar';
 
 const styles = {
 	profileInfo: {
 		marginTop: 30,
 	},
 	profilePic: {
+		borderRadius: '50%',
+		maxWidth: '100%',
+		marginLeft: '10px',
 		width: '200px',
 		height: '200px',
+		borderColor: 'var(--main-bg-color)',
+		borderStyle: 'solid',
+		borderWidth: 3,
+
 	},
 	btnText: {
 		marginLeft: 10,
@@ -43,20 +45,20 @@ class Profile extends Component {
 	};
 
 	render() {
-		const { classes } = this.props;
+		const { classes, name, photo, uid, email } = this.props;
+		console.log(this.props);
 
 		return (
 			<div>
-				<NavBar />
 				<div className="main-content-section">
-					<h1>User: john</h1>
+					<h1>User: {name}</h1>
 					<Grid container spacing={16}>
 						<Grid item xs={12} sm={12} md={4}>
-							<img src={profilePic} alt="profile pic" className={classes.profilePic} />
+							<img src={photo} alt="profile pic" className={classes.profilePic} />
 						</Grid>
 						<Grid item xs={12} sm={12} md={8}>
-							<h1>John Doe</h1>
-							<h3>john@example.com</h3>
+							<h1>{name}</h1>
+							<h3>{email}</h3>
 						</Grid>
 					</Grid>
 					<Grid container spacing={16}>
@@ -66,43 +68,33 @@ class Profile extends Component {
 							<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
 							<TextField
 								id="outlined-name"
-								label="Username"
+								label="User id"
 								className={classes.textField}
-								value={this.state.name}
-								onChange={this.handleChange('name')}
+								value={uid}
 								margin="normal"
 								variant="outlined"
 								fullWidth
-							/>
-							<TextField
-								id="outlined-name"
-								label="Email"
-								className={classes.textField}
-								value={this.state.email}
-								onChange={this.handleChange('email')}
-								margin="normal"
-								variant="outlined"
-								fullWidth
-							/>
-							<TextField
-								id="outlined-name"
-								label="Password"
-								className={classes.textField}
-								value={this.state.password}
-								onChange={this.handleChange('password')}
-								margin="normal"
-								variant="outlined"
-								fullWidth
+								disabled
 							/>
 							<TextField
 								id="outlined-name"
 								label="Full Name"
 								className={classes.textField}
-								value={this.state.fullName}
-								onChange={this.handleChange('fullName')}
+								value={name}
 								margin="normal"
 								variant="outlined"
 								fullWidth
+								disabled
+							/>
+							<TextField
+								id="outlined-name"
+								label="Email"
+								className={classes.textField}
+								value={email}
+								margin="normal"
+								variant="outlined"
+								fullWidth
+								disabled
 							/>
 						</Grid>
 					</Grid>

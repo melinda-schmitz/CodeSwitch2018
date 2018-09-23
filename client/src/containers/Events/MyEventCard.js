@@ -49,7 +49,7 @@ class MyEventCard extends Component {
 				<CardActions>
 					<Grid container justify="flex-end">
 						<Button className="app-btn view-details" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right"></i></Button>
-						<Button className="app-btn delete-event" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i class="fas fa-trash"></i></Button>
+						<Button className="app-btn delete-event" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
 					</Grid>
 				</CardActions>
 			</Card >

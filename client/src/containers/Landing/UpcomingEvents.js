@@ -3,9 +3,10 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import UpcomingEventContent from './UpcomingEventContent';
+// import css
+import './Landing.css';
 
 const styles = {
 	card: {
@@ -13,7 +14,7 @@ const styles = {
 		marginTop: 30,
 		borderStyle: 'solid',
 		borderWidth: 3,
-		borderColor: 'var(--app-secondary-color)',
+		borderColor: 'var(--main-bg-color)',
 	},
 };
 
@@ -29,7 +30,7 @@ class UpcomingEvents extends Component {
 					<UpcomingEventContent />
 				</CardContent>
 				<CardActions>
-					<Button variant="contained" color="primary" size="large" className="app-btn">View More...</Button>
+					<Button variant="contained" size="large" className="app-btn view-details-btn">View More...</Button>
 				</CardActions>
 			</Card>
 		)

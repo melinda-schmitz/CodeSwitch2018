@@ -1,0 +1,46 @@
+.section {
+  border: 1px solid black;
+  padding: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 100%;
+}
+
+.child{
+    background-color: #F5F5F5;
+    padding: 10px;
+    border: 1px solid black; 
+}
+
+.floatRight {
+  float: right;
+}
+
+.flex-grid {
+  display: flex;
+}
+
+.flex-grid .col {
+  flex: 1;
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
+@media (max-width: 400px) {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block;
+  }
+  .flex-grid .col,
+  .flex-grid-thirds .col {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}

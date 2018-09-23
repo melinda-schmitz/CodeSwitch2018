@@ -1,13 +1,9 @@
 // import React
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import EventCard from './EventCard';
 import UpcomingEvents from './UpcomingEvents';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-// Import NavBar component
-import NavBar from '../../components/NavBar';
 
 
 class Landing extends Component {
@@ -16,7 +12,6 @@ class Landing extends Component {
 
 		return (
 			<div>
-				<NavBar />
 				<div className="main-content-section">
 					<Grid container spacing={16}>
 						<Grid item xs={12} sm={12} md={8}>
@@ -32,7 +27,7 @@ class Landing extends Component {
 							<UpcomingEvents />
 						</Grid>
 					</Grid>
-					<Button variant="contained" color="primary" size="large" className="app-btn">View More...</Button>
+					<Button variant="contained" color="primary" size="large" className="app-btn view-details-btn">View More...</Button>
 				</div >
 			</div>
 		)

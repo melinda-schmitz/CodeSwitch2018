@@ -35,6 +35,12 @@ const styles = {
 	menuText: {
 		marginLeft: 10,
 	},
+	profileImage: {
+		borderRadius: '50 %',
+		maxWidth: '100%',
+		height: '40px',
+		marginLeft: '10px',
+	}
 };
 
 class NavBar extends Component {
@@ -50,7 +56,8 @@ class NavBar extends Component {
 	};
 
 	render() {
-		const { classes } = this.props;
+		const { classes, name, photo, handleLogout } = this.props;
+		console.log(this.props);
 		return (
 			<div className={classes.root}>
 				<AppBar position="static" className="appbar">
@@ -59,10 +66,13 @@ class NavBar extends Component {
 							<i className="fas fa-bars fa-2x" />
 						</Button>
 						<Typography variant="title" color="inherit" className={classes.grow} component={Link} to="/">
-							Edu To Do
+							EduVents
             </Typography>
+						<Typography color="inherit">
+							Welcome {name}
+						</Typography>
 						<Button color="inherit" className={classes.loginButton} component={Link} to="/profile">
-							<i className="far fa-user-circle" />
+							<img src={photo} alt={name} className={classes.profileImage} />
 						</Button>
 					</Toolbar>
 				</AppBar>
@@ -72,7 +82,7 @@ class NavBar extends Component {
 					<MenuItem className={classes.menuItem} component={Link} to="/events"><i className="fas fa-calendar-alt"></i><span className={classes.menuText}> Events</span></MenuItem>
 					<MenuItem className={classes.menuItem} component={Link} to="/profile"><i className="fas fa-users"></i><span className={classes.menuText}>Profile</span></MenuItem>
 					<MenuItem className={classes.menuItem} component={Link} to="/help"><i className="fas fa-question-circle"></i><span className={classes.menuText}>Help</span></MenuItem>
-					<MenuItem className={classes.menuItem} component={Link} to="/"><i className="fas fa-sign-out-alt"></i><span className={classes.menuText}>Logout</span></MenuItem>
+					<MenuItem className={classes.menuItem} onClick={handleLogout} component={Link} to="/"><i className="fas fa-sign-out-alt"></i><span className={classes.menuText}>Logout</span></MenuItem>
 				</Drawer>
 			</div >
 		);

@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 // Import NavBar component
 import NavBar from '../../components/NavBar';
 
+
 class Landing extends Component {
 
 	render() {

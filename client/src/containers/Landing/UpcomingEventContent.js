@@ -30,7 +30,7 @@ class UpcomingEventContent extends Component {
 							Date: {item.date}
 							</Typography>
 						<Typography component="p">
-							Time: {item.date}
+							Time: {item.time}
 							</Typography>
 						<Typography component="p">
 							<Button variant="contained" className="view-details-btn" size="small">

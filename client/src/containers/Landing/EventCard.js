@@ -45,7 +45,7 @@ class EventCard extends Component {
 				</CardContent>
 				<CardActions>
 					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
-					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Save Event</span><i class="far fa-save fa-2x"></i></Button>
+					<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Save Event</span><i className="far fa-save fa-2x"></i></Button>
 				</CardActions>
 			</Card >
 		)

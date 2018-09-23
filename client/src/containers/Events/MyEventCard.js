@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 // Import Css
 import './Events.css';
+import activities from '../../data/todaytEvents.json';
 
 const styles = {
 	card: {
@@ -29,32 +30,38 @@ const styles = {
 class MyEventCard extends Component {
 	render() {
 		const { classes } = this.props;
-
-		return (
-			<Card className={classes.card}>
-				<CardContent>
-					<Typography component="p" className={classes.eventInfo}>
-						Event: Reading Buddies
-					</Typography>
-					<Typography component="p" className={classes.eventInfo}>
-						Location: Arlington Hills Library
-					</Typography>
-					<Typography component="p" className={classes.eventInfo}>
-						Date: September 23, 2018
-					</Typography>
-					<Typography component="p" className={classes.eventInfo}>
-						Time: 3:30 PM
-					</Typography>
-				</CardContent>
-				<CardActions>
-					<Grid container justify="flex-end">
+		// console.log(activities);
+		// return null;
+		return(
+			activities.map(item => {
+				return (
+					<Card className={classes.card} key={item.id}>
+						<CardContent>
+							<Typography component="p" className={classes.eventInfo}>
+							Event: {item.name}
+							</Typography>
+							<Typography component="p" className={classes.eventInfo}>
+							Location: {item.location}
+							</Typography>
+							<Typography component="p" className={classes.eventInfo}>
+							Date: {item.date}
+							</Typography>
+							<Typography component="p" className={classes.eventInfo}>
+							Time: {item.time}
+							</Typography>
+						</CardContent>
+						<CardActions>
+						<Grid container justify="flex-end">
 						<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right"></i></Button>
 						<Button className="app-btn delete-event save-event-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
-					</Grid>
-				</CardActions>
-			</Card >
+						</Grid>
+						</CardActions>
+					</Card >
+				)
+			})
 		)
 	}
 }
+
 
 export default withStyles(styles)(MyEventCard);

@@ -26,8 +26,6 @@ class UpcomingEvents extends Component {
 			<Card className={classes.card}>
 				<CardContent>
 					<UpcomingEventContent />
-					<UpcomingEventContent />
-					<UpcomingEventContent />
 				</CardContent>
 				<CardActions>
 					<Button variant="contained" size="large" className="app-btn view-details-btn">View More...</Button>

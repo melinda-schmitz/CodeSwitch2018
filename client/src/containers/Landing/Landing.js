@@ -23,10 +23,6 @@ class Landing extends Component {
 						<Grid item xs={12} sm={12} md={8}>
 							<h1>Today's Events</h1>
 							<EventCard />
-							<EventCard />
-							<EventCard />
-							<EventCard />
-							<EventCard />
 						</Grid>
 						<Grid item xs={12} sm={12} md={4}>
 							<DayPicker />

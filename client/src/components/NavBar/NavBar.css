@@ -1,0 +1,4 @@
+.appbar {
+	background-color: var(--main-bg-color) !important;
+	color: var(--app-secondary-color) !important;
+}

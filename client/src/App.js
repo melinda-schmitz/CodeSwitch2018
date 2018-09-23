@@ -4,7 +4,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Import App css file
 import './App.css';
+// Import NavBar component
 import NavBar from './components/NavBar';
+// Import Header component
+import Header from './components/Header';
 // Import Events page
 import Events from './containers/Events';
 // Import Profile page
@@ -15,6 +18,8 @@ import AddEvent from './containers/AddEvent';
 import Login from './containers/Login';
 // Import Landing page
 import Landing from './containers/Landing';
+// Import Foooter component
+import Footer from './components/Footer';
 
 class App extends Component {
 	render() {
@@ -30,6 +35,7 @@ class App extends Component {
 							<Route exact path="/add" component={AddEvent} />
 							<Route exact path="/login" component={Login} />
 						</Switch>
+						<Footer />
 					</div>
 				</Router>
 			</div>

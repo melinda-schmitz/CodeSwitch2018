@@ -1,0 +1,11 @@
+.view-details-btn {
+	background-color: #CDD7D6 !important;
+	border: 1px solid var(--main-bg-color) !important ;
+	color: black !important;
+}
+
+.save-event-btn {
+	background-color: #8FD5A6 !important;
+	border: 1px solid var(--main-bg-color) !important ;
+	color: black !important;
+}

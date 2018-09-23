@@ -47,13 +47,13 @@ class EventCard extends Component {
 							Date: {item.date}
 							</Typography>
 							<Typography component="p" className={classes.eventInfo}>
-							Time: 3:30 PM
+							Time: {item.time}
 							</Typography>
 						</CardContent>
 						<CardActions>
 						<Grid container justify="flex-end">
-						<Button className="app-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right"></i></Button>
-						<Button className="app-btn delete-event save-event-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
+						<Button className="app-btn view-details-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>View Details</span><i className="far fa-arrow-alt-circle-right fa-2x"></i></Button>
+						<Button className="app-btn delete-event-btn" variant="contained" color="primary" size="small"><span className={classes.btnText}>Delete Event</span><i className="fas fa-trash"></i></Button>
 						</Grid>
 						</CardActions>
 					</Card >

@@ -4,8 +4,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Import App css file
 import './App.css';
-// Import NavBar component
-import NavBar from './components/NavBar';
 // Import Header component
 import Header from './components/Header';
 // Import Events page
@@ -27,7 +25,6 @@ class App extends Component {
 			<div className="App">
 				<Router>
 					<div>
-						<NavBar />
 						<Switch>
 							<Route exact path="/" component={Landing} />
 							<Route exact path="/events" component={Events} />

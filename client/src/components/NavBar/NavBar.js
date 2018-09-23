@@ -56,13 +56,13 @@ class NavBar extends Component {
 				<AppBar position="static" className="appbar">
 					<Toolbar>
 						<Button color="inherit" className={classes.menuButton} onClick={this.toggleDrawer('left', true)}>
-							<i class="fas fa-bars fa-2x" />
+							<i className="fas fa-bars fa-2x" />
 						</Button>
 						<Typography variant="title" color="inherit" className={classes.grow} component={Link} to="/">
 							Edu To Do
             </Typography>
 						<Button color="inherit" className={classes.loginButton} component={Link} to="/profile">
-							<i class="far fa-user-circle" />
+							<i className="far fa-user-circle" />
 						</Button>
 					</Toolbar>
 				</AppBar>

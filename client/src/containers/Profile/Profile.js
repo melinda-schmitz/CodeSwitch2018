@@ -17,7 +17,13 @@ const styles = {
 	profilePic: {
 		width: '200px',
 		height: '200px',
-	}
+	},
+	btnText: {
+		marginLeft: 10,
+	},
+	textField: {
+		marginTop: 30,
+	},
 };
 
 class Profile extends Component {
@@ -51,9 +57,9 @@ class Profile extends Component {
 				</Grid>
 				<Grid container spacing={16}>
 					<Grid item xs={12} sm={12} md={4}>
-						<Button size="large"><i className="fas fa-check"></i>{' '}Save</Button>
 					</Grid>
 					<Grid item xs={12} sm={12} md={8}>
+						<Button variant="contained" color="primary" size="large" className="app-btn" ><i className="fas fa-check"></i><span className={classes.btnText}> Save</span></Button>
 						<TextField
 							id="outlined-name"
 							label="Username"

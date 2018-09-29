@@ -1,25 +1,24 @@
 // import React
 import React, { Component } from 'react';
+// import prop types
+import PropTypes from 'prop-types';
+// import Material UI commponents, styling, etc.
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-// import placeholder profile pic
-import profilePic from '../../images/profilepic.png';
-// import Firebase
-import firebase from '../../firebase-config';
-import '../Profile/Profile.css';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+// import CSS
+import './Profile.css';
+// import Firebase
+// import firebase from '../../firebase-config';
 
 const styles = {
 	profileInfo: {
-		marginTop: 30
+		marginTop: 30,
 	},
 	profilePic: {
 		borderRadius: '50%',
@@ -29,30 +28,24 @@ const styles = {
 		height: '200px',
 		borderColor: 'var(--main-bg-color)',
 		borderStyle: 'solid',
-		borderWidth: 3
+		borderWidth: 3,
 	},
 	btnText: {
-		marginLeft: 10
+		marginLeft: 10,
 	},
 	textField: {
-		marginTop: 30
-	}
+		marginTop: 30,
+	},
 };
 
 class Profile extends Component {
 	state = {
-		AfricanAmerican: false,
-		AsianAmerican: false,
-		LatinAmerican: false,
-		ArabAmerican: false,
-		EuropeanAmerican: false,
-		MultiCultural: false,
-		preferencesRef: firebase.database().ref('preferences')
+
 	};
 
 	handleChange = name => event => {
 		this.setState({
-			[name]: event.target.value
+			[name]: event.target.value,
 		});
 	};
 
@@ -60,73 +53,15 @@ class Profile extends Component {
 		this.setState({ [name]: event.target.checked });
 	};
 
-	// Save preferences to firebase
-	savePreference = (
-		AfricanAmerican,
-		AsianAmerican,
-		LatinAmerican,
-		ArabAmerican,
-		EuropeanAmerican,
-		MultiCultural
-	) => {
-		const { preferencesRef } = this.state;
-		const newPreferenceRef = preferencesRef.push();
-		newPreferenceRef.set({
-			AfricanAmerican,
-			AsianAmerican,
-			LatinAmerican,
-			ArabAmerican,
-			EuropeanAmerican
-		});
-	};
-
-	// On click handler for when user trys to submit story form
-	handleStorySubmit = event => {
-		// Prevent the form from submitting itself.
-		event.preventDefault();
-		// ES6 destructuring
-		const {
-			AfricanAmerican,
-			AsianAmerican,
-			LatinAmerican,
-			ArabAmerican,
-			EuropeanAmerican,
-			MultiCultural
-		} = this.state;
-
-		const { user } = this.props;
-
-		// Save preferences to backend database if form is filled out.
-		// Save preference
-		this.savePreference(
-			AfricanAmerican,
-			AsianAmerican,
-			LatinAmerican,
-			ArabAmerican,
-			EuropeanAmerican,
-			MultiCultural
-		);
-		// this.setState({
-		// 	formSuccess: 'Story posted successfully!',
-		// 	formSuccessMessageClass: 'form-success-message',
-		// 	title: '',
-		// 	story: '',
-		// 	titleError: '',
-		// 	storyError: '',
-		// });
-	};
-
 	render() {
-		const { classes, name, photo, uid, email, number } = this.props;
 		const {
-			AfricanAmerican,
-			AsianAmerican,
-			LatinAmerican,
-			ArabAmerican,
-			EuropeanAmerican,
-			MultiCultural
-		} = this.state;
-		console.log(this.props);
+			classes,
+			name,
+			photo,
+			email,
+			number,
+		} = this.props;
+		// console.log(this.props);
 
 		return (
 			<div>
@@ -217,7 +152,7 @@ class Profile extends Component {
 								</div>
 								<div className="section">
 									<h2>My Event Interests</h2>
-									<div class="flex-grid-thirds">
+									<div className="flex-grid-thirds">
 										<div className="col">
 											<b>Event Types:</b>
 											<br />
@@ -225,26 +160,29 @@ class Profile extends Component {
 												defaultChecked
 												color="default"
 												value="checkedG"
-											/>{' '}
+											/>
+											{' '}
 											Arts and Crafts
                       <br />
-											<Checkbox color="default" value="checkedG" /> Career
-                      Exploration
+											<Checkbox color="default" value="checkedG" />
+											Career Exploration
                       <br />
-											<Checkbox color="default" value="checkedG" /> Fun and
-                      Games
+											<Checkbox color="default" value="checkedG" />
+											Fun and Games
                       <br />
 											<Checkbox
 												defaultChecked
 												color="default"
 												value="checkedG"
-											/>{' '}
+											/>
+											{' '}
 											Educational
                       <br />
-											<Checkbox color="default" value="checkedG" /> Science and
-                      Math
+											<Checkbox color="default" value="checkedG" />
+											Science and Math
                       <br />
-											<Checkbox color="default" value="checkedG" /> Technology
+											<Checkbox color="default" value="checkedG" />
+											Technology
                     </div>
 										<div className="col">
 											<b>Grade:</b>
@@ -253,11 +191,18 @@ class Profile extends Component {
 												defaultChecked
 												color="default"
 												value="checkedG"
-											/>{' '}
-											K - 2<br />
-											<Checkbox color="default" value="checkedG" /> 3 - 5<br />
-											<Checkbox color="default" value="checkedG" /> 6 - 8<br />
-											<Checkbox color="default" value="checkedG" /> 9 - 13
+											/>
+											{' '}
+											K - 2
+                      <br />
+											<Checkbox color="default" value="checkedG" />
+											3 - 5
+                      <br />
+											<Checkbox color="default" value="checkedG" />
+											6 - 8
+                      <br />
+											<Checkbox color="default" value="checkedG" />
+											9 - 13
                     </div>
 										<div className="col">
 											<b>Cost:</b>
@@ -266,15 +211,18 @@ class Profile extends Component {
 												defaultChecked
 												color="default"
 												value="checkedG"
-											/>{' '}
+											/>
+											{' '}
 											Free
                       <br />
-											<Checkbox color="default" value="checkedG" /> Under $20
+											<Checkbox color="default" value="checkedG" />
+											Under $20
                       <br />
-											<Checkbox color="default" value="checkedG" /> $20 -$50
+											<Checkbox color="default" value="checkedG" />
+											$20 -$50
                     </div>
 									</div>
-									<div class="flex-grid">
+									<div className="flex-grid">
 										<div className="col">
 											<b>Parental Requirement:</b>
 											<br />
@@ -282,11 +230,12 @@ class Profile extends Component {
 												defaultChecked
 												color="default"
 												value="checkedG"
-											/>{' '}
+											/>
+											{' '}
 											All Family
                       <br />
-											<Checkbox color="default" value="checkedG" /> Kids with a
-                      parent
+											<Checkbox color="default" value="checkedG" />
+											Kids with a parent
                     </div>
 										<div className="col">
 											<b>Location</b>
@@ -298,14 +247,15 @@ class Profile extends Component {
 												value="55106"
 												margin="normal"
 												variant="outlined"
-											/><br />
+											/>
+											<br />
 											<InputLabel htmlFor="miles">Miles</InputLabel>
 											<Select
 												value={this.state.age}
 												onChange={this.handleChange}
 												inputProps={{
 													name: 'miles',
-													id: 'miles'
+													id: 'miles',
 												}}
 											>
 												<MenuItem value="">
@@ -336,5 +286,15 @@ class Profile extends Component {
 		);
 	}
 }
+
+
+Profile.propTypes = {
+	name: PropTypes.string,
+	photo: PropTypes.string,
+	email: PropTypes.string,
+	user: PropTypes.object,
+	classes: PropTypes.object.isRequired,
+	number: PropTypes.number,
+};
 
 export default withStyles(styles)(Profile);

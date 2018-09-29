@@ -2,8 +2,12 @@
 import React, { Component } from 'react';
 // Importing React Router to add page routes.
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// Import App css file
-import './App.css';
+// import Material UI components and styling
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 // Import Events page
 import Events from './containers/Events';
 // Import Profile page
@@ -22,20 +26,12 @@ import Footer from './components/Footer';
 import EventDetails from './containers/EventDetails/EventDetails';
 // import NavBar component
 import NavBar from './components/NavBar';
-// import card components
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 // import Firebase
 import { auth, provider } from './firebase-config';
-// import material ui grid layout
-import Grid from '@material-ui/core/Grid';
-// import typography
-import Typography from '@material-ui/core/Typography';
-// import css styling for material ui components.
-import { withStyles } from '@material-ui/core/styles';
 // import Logo
 import logo from './images/edue_logo.png';
+// Import App css file
+import './App.css';
 
 const styles = {
 	card: {
@@ -109,20 +105,25 @@ class App extends Component {
 	render() {
 		const { user } = this.state;
 		const { classes } = this.props;
-		console.log(user);
+		// console.log(user);
 		return (<div className="App">
 			<Router>
 				<div className="entire-page">
 					{user
 						? (
 							<div>
-								<NavBar name={user.displayName || user.email} photo={user.photoURL} handleLogout={this.logout} />
+								<NavBar
+									name={user.displayName || user.email}
+									photo={user.photoURL}
+									handleLogout={this.logout}
+								/>
 								<div className="main-content-section">
 									<Switch>
 										<Route exact path="/" component={Landing} />
 										<Route exact path="/events" component={Events} />
 										<Route exact path="/profile" render={props => <Profile
-											{...props} name={user.displayName} email={user.email} photo={user.photoURL} uid={user.uid}></Profile>} />
+											{...props} name={user.displayName} email={user.email} photo={user.photoURL} uid={user.uid}></Profile>}
+										/>
 										<Route exact path="/add" component={AddEvent} />
 										<Route exact path="/help" component={Help} />
 										<Route exact path="/login" component={Login} />
@@ -140,26 +141,27 @@ class App extends Component {
 									<Grid item xs={12} sm={12} md={6}>
 										<Typography variant="display1" className="app-title">
 											Welcome to EduVents
-            				</Typography>
+                    </Typography>
 										<Card className={classes.card}>
 											<CardContent>
 												<Typography variant="display1">
 													LOGIN
-            					</Typography>
-												<Typography variant="p" className="sub-title">
-													Log in to find fun, educational activities and events to do with your kids.
-            					</Typography>
+                        </Typography>
+												<Typography variant="body1" className="sub-title">
+													Log in to find fun, educational activities and
+                          events to do with your kids.
+                        </Typography>
 												<div className="login">
 													<p>Login with Google to continue to site.</p>
 													<button type="submit" className="loginBtn loginBtn--google" onClick={this.login}>
 														Login with Google
-                      </button>
+                          </button>
 												</div>
 											</CardContent>
 										</Card>
 									</Grid>
 								</Grid>
-							</div >
+							</div>
 						)}
 					<Footer />
 				</div>

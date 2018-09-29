@@ -1,9 +1,10 @@
 // import React
 import React, { Component } from 'react';
-// Import NavBar component
-import NavBar from '../../components/NavBar';
+// Import Material UI components
 import Grid from '@material-ui/core/Grid';
+// Import Upcoming Events component
 import UpcomingEvents from '../Landing/UpcomingEvents';
+// Import Event Card component.
 import MyEventCard from './MyEventCard';
 // import Firebase
 import firebase from '../../firebase-config';
@@ -12,28 +13,28 @@ class Events extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      eventsRef: firebase.database().ref('events'),
-      events: []
+      // name: '',
+      // eventsRef: firebase.database().ref('events'),
+      // events: [],
     };
   }
 
   componentDidMount() {
     /* Create reference to messages in Firebase Database */
-	const eventsRef = firebase.database().ref('events');
+    const eventsRef = firebase.database().ref('events');
     eventsRef.on('value', snapshot => {
-		const events = snapshot.val();
-		console.log(events);
+      const events = snapshot.val();
+      // console.log(events);
       const newState = [];
       for (const event in events) {
         newState.push({
-          name: events[event].name
+          name: events[event].name,
         });
       }
       this.setState({
-        events: newState
+        events: newState,
       });
-      console.log('EVENTS: ' + this.state.events);
+      // console.log('EVENTS: ' + this.state.events);
     });
   }
 

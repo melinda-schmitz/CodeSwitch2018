@@ -1,4 +1,7 @@
+// Import React
 import React, { Component } from 'react';
+// import prop types
+import PropTypes from 'prop-types';
 // Import Material UI components and styling.
 import { withStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
@@ -14,7 +17,15 @@ const styles = theme => ({
 
 class EventField extends Component {
   render() {
-    const { classes, label, id, name, onFieldChange, fieldType } = this.props;
+    // ES6 destructuring
+    const {
+      classes,
+      label,
+      id,
+      name,
+      onChange,
+      fieldType,
+    } = this.props;
 
     return (
       <FormControl className={classes.formControl} fullWidth>
@@ -23,16 +34,27 @@ class EventField extends Component {
           id={id}
           margin="normal"
           name={name}
-          onChange={onFieldChange}
           type={fieldType}
+          onChange={onChange}
           variant="outlined"
           InputLabelProps={{
             shrink: true,
           }}
         />
       </FormControl>
-    )
+    );
   }
 }
 
+// Define prop types
+EventField.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  fieldType: PropTypes.string.isRequired,
+  classes: PropTypes.object.isRequired,
+};
+
+// Export the EventField component so that it can be added to the AddEvent form component.
 export default withStyles(styles)(EventField);

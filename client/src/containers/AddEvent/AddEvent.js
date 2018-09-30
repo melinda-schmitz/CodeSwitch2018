@@ -29,6 +29,9 @@ const styles = theme => ({
   menu: {
     width: 200,
   },
+  invalidFeedback: {
+    color: 'var(--form-error-color)',
+  },
 });
 const initialState = {
   eventName: '',
@@ -37,7 +40,10 @@ const initialState = {
   eventCity: '',
   eventState: '',
   eventZip: '',
+  eventDate: '',
+  eventTime: '',
   eventDescription: '',
+  errors: [],
 };
 
 
@@ -58,6 +64,8 @@ class AddEvent extends Component {
       eventCity,
       eventState,
       eventZip,
+      eventDate,
+      eventTime,
       eventDescription,
     } = this.state;
     e.preventDefault();
@@ -69,6 +77,48 @@ class AddEvent extends Component {
     console.log('state', eventState);
     console.log('zip code', eventZip);
     console.log('event desc', eventDescription);
+
+    // Check For Errors
+    if (eventName === '') {
+      this.setState({ errors: { eventName: 'Event name is required.' } });
+      return;
+    }
+
+    if (eventAddress === '') {
+      this.setState({ errors: { eventAddress: 'Street address is required.' } });
+      return;
+    }
+
+    if (eventCity === '') {
+      this.setState({ errors: { eventCity: 'City is required.' } });
+      return;
+    }
+
+    if (eventState === '') {
+      this.setState({ errors: { eventState: 'State is required.' } });
+      return;
+    }
+
+    if (eventZip === '') {
+      this.setState({ errors: { eventZip: 'Zip code is required.' } });
+      return;
+    }
+
+    if (eventDate === '') {
+      this.setState({ errors: { eventDate: 'Date is required.' } });
+      return;
+    }
+
+    if (eventTime === '') {
+      this.setState({ errors: { eventTime: 'Time is required.' } });
+      return;
+    }
+
+    if (eventDescription === '') {
+      this.setState({ errors: { eventDescription: 'Description of event is required.' } });
+      return;
+    }
+
     this.eventsRef.push({
       eventName,
       eventAddress,
@@ -76,11 +126,16 @@ class AddEvent extends Component {
       eventCity,
       eventState,
       eventZip,
+      eventDate,
+      eventTime,
       eventDescription,
     });
     // Clear form
     document.getElementById('add-event-form').reset();
     this.setState(initialState);
+
+    // Go to home page
+    this.props.history.push('/');
   }
 
   render() {
@@ -95,15 +150,16 @@ class AddEvent extends Component {
       eventDescription,
       eventDate,
       eventTime,
+      errors,
     } = this.state;
 
     return (
       <div>
         <div className="main-content-section">
           <h1>Add Event</h1>
-          <Grid container spacing={16}>
-            <Grid item xs={12} sm={12} md={6}>
-              <form id="add-event-form" className={classes.container} noValidate autoComplete="off" onSubmit={this.onSubmit}>
+          <form id="add-event-form" className={classes.container} noValidate autoComplete="off" onSubmit={this.onSubmit}>
+            <Grid container spacing={24}>
+              <Grid item xs={12} sm={12} md={6}>
                 <EventField
                   label="Event name"
                   id="event-name"
@@ -111,7 +167,37 @@ class AddEvent extends Component {
                   onChange={this.onChange}
                   fieldType="text"
                   value={eventName}
+                  error={errors.eventName}
                 />
+                <EventField
+                  label="Date"
+                  id="event-date"
+                  name="eventDate"
+                  onChange={this.onChange}
+                  fieldType="date"
+                  value={eventDate}
+                  error={errors.eventDate}
+                />
+                <EventField
+                  label="Time"
+                  id="event-time"
+                  name="eventTime"
+                  onChange={this.onChange}
+                  fieldType="time"
+                  value={eventTime}
+                  error={errors.eventTime}
+                />
+                <EventField
+                  label="Description"
+                  id="event-description"
+                  name="eventDescription"
+                  onChange={this.onChange}
+                  fieldType="text"
+                  value={eventDescription}
+                  error={errors.eventDescription}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={6}>
                 <EventField
                   label="Street address"
                   id="street-address"
@@ -119,6 +205,7 @@ class AddEvent extends Component {
                   onChange={this.onChange}
                   fieldType="text"
                   value={eventAddress}
+                  error={errors.eventAddress}
                 />
                 <EventField
                   label="Address line 2"
@@ -135,6 +222,7 @@ class AddEvent extends Component {
                   onChange={this.onChange}
                   fieldType="text"
                   value={eventCity}
+                  error={errors.eventCity}
                 />
                 <FormControl className={classes.formControl} fullWidth>
                   <TextField
@@ -144,6 +232,7 @@ class AddEvent extends Component {
                     label="State"
                     onChange={this.onChange}
                     margin="normal"
+                    error={errors.eventState}
                     value={eventState}
                     variant="outlined"
                     SelectProps={{
@@ -161,6 +250,7 @@ class AddEvent extends Component {
                       </MenuItem>
                     ))}
                   </TextField>
+                  {errors.eventState && <div className={classes.invalidFeedback}>{errors.eventState}</div>}
                 </FormControl>
                 <EventField
                   label="Zip code"
@@ -169,37 +259,14 @@ class AddEvent extends Component {
                   onChange={this.onChange}
                   fieldType="text"
                   value={eventZip}
-                />
-                <EventField
-                  label="Date"
-                  id="event-date"
-                  name="eventDate"
-                  onChange={this.onChange}
-                  fieldType="date"
-                  value={eventDate}
-                />
-                <EventField
-                  label="Time"
-                  id="event-time"
-                  name="eventTime"
-                  onChange={this.onChange}
-                  fieldType="time"
-                  value={eventTime}
-                />
-                <EventField
-                  label="Description"
-                  id="event-description"
-                  name="eventDescription"
-                  onChange={this.onChange}
-                  fieldType="text"
-                  value={eventDescription}
+                  error={errors.eventZip}
                 />
                 <Button type="submit" variant="fab" color="primary" aria-label="Add" className={classes.button}>
                   <AddIcon />
                 </Button>
-              </form>
+              </Grid>
             </Grid>
-          </Grid>
+          </form>
         </div>
       </div>
     );
@@ -209,6 +276,7 @@ class AddEvent extends Component {
 // Define prop types
 AddEvent.propTypes = {
   classes: PropTypes.object.isRequired,
+  errors: PropTypes.object,
 };
 
 

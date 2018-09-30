@@ -13,6 +13,9 @@ const styles = theme => ({
     minWidth: 120,
     marginTop: 20,
   },
+  invalidFeedback: {
+    color: 'var(--form-error-color)',
+  },
 });
 
 class EventField extends Component {
@@ -25,6 +28,7 @@ class EventField extends Component {
       name,
       onChange,
       fieldType,
+      error,
     } = this.props;
 
     return (
@@ -41,6 +45,7 @@ class EventField extends Component {
             shrink: true,
           }}
         />
+        {error && <div className={classes.invalidFeedback}>{error}</div>}
       </FormControl>
     );
   }
@@ -54,6 +59,7 @@ EventField.propTypes = {
   onChange: PropTypes.func.isRequired,
   fieldType: PropTypes.string.isRequired,
   classes: PropTypes.object.isRequired,
+  error: PropTypes.string,
 };
 
 // Export the EventField component so that it can be added to the AddEvent form component.

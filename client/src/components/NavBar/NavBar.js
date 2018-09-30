@@ -53,6 +53,39 @@ const styles = {
   },
 };
 
+const menuLinks = [
+  {
+    id: 0,
+    link: '/',
+    icon: 'fas fa-home',
+    name: 'Home',
+  },
+  {
+    id: 1,
+    link: '/events',
+    icon: 'fas fa-calendar-alt',
+    name: 'Events',
+  },
+  {
+    id: 2,
+    link: '/profile',
+    icon: 'fas fa-users',
+    name: 'Profile',
+  },
+  {
+    id: 3,
+    link: '/add',
+    icon: 'far fa-calendar-plus',
+    name: 'Add Event',
+  },
+  {
+    id: 4,
+    link: '/help',
+    icon: 'fas fa-question-circle',
+    name: 'Help',
+  },
+];
+
 class NavBar extends Component {
   constructor() {
     super();
@@ -99,22 +132,13 @@ class NavBar extends Component {
             EduVents
           </Typography>
           <Divider />
-          <MenuItem className={classes.menuItem} component={Link} to="/">
-            <i className="fas fa-home" />
-            <span className={classes.menuText}>Home</span>
-          </MenuItem>
-          <MenuItem className={classes.menuItem} component={Link} to="/events">
-            <i className="fas fa-calendar-alt" />
-            <span className={classes.menuText}> Events</span>
-          </MenuItem>
-          <MenuItem className={classes.menuItem} component={Link} to="/profile">
-            <i className="fas fa-users" />
-            <span className={classes.menuText}>Profile</span>
-          </MenuItem>
-          <MenuItem className={classes.menuItem} component={Link} to="/help">
-            <i className="fas fa-question-circle" />
-            <span className={classes.menuText}>Help</span>
-          </MenuItem>
+          {menuLinks.map(link => (
+            <MenuItem key={link.id} className={classes.menuItem} component={Link} to={link.link}>
+              <i className={link.icon} />
+              <span className={classes.menuText}>{link.name}</span>
+            </MenuItem>
+          ))}
+          ;
           <MenuItem className={classes.menuItem} onClick={handleLogout} component={Link} to="/">
             <i className="fas fa-sign-out-alt" />
             <span className={classes.menuText}>Logout</span>

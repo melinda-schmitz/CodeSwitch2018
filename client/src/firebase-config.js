@@ -7,12 +7,12 @@ import 'firebase/auth';
 
 
 const config = {
-	apiKey: "AIzaSyCflQfveMclJR7MGQdTUg1QDn0UjKvKfx4",
-	authDomain: "learner-47455.firebaseapp.com",
-	databaseURL: "https://learner-47455.firebaseio.com",
-	projectId: "learner-47455",
-	storageBucket: "",
-	messagingSenderId: "1006094214832"
+  apiKey: 'AIzaSyCflQfveMclJR7MGQdTUg1QDn0UjKvKfx4',
+  authDomain: 'learner-47455.firebaseapp.com',
+  databaseURL: 'https://learner-47455.firebaseio.com',
+  projectId: 'learner-47455',
+  storageBucket: '',
+  messagingSenderId: '1006094214832',
 };
 
 firebase.initializeApp(config);
@@ -21,4 +21,5 @@ firebase.initializeApp(config);
 // Google Authentication for sign in anywhere inside of our application
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();
+export const database = firebase.database();
 export default !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();

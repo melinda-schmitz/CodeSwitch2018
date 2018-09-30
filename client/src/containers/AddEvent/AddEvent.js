@@ -14,6 +14,8 @@ import Button from '@material-ui/core/Button';
 import EventField from './EventField';
 // import list of states
 import states from './states.json';
+// import Firebase database
+import { database } from '../../firebase-config';
 
 const styles = theme => ({
   formControl: {
@@ -28,17 +30,23 @@ const styles = theme => ({
     width: 200,
   },
 });
+const initialState = {
+  eventName: '',
+  eventAddress: '',
+  eventAddress2: '',
+  eventCity: '',
+  eventState: '',
+  eventZip: '',
+  eventDescription: '',
+};
+
 
 class AddEvent extends Component {
-  state = {
-    eventName: '',
-    eventAddress: '',
-    eventAddress2: '',
-    eventCity: '',
-    eventState: '',
-    eventZip: '',
-    eventDescription: '',
-  };
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+    this.eventsRef = database.ref('/events');
+  }
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
@@ -61,6 +69,18 @@ class AddEvent extends Component {
     console.log('state', eventState);
     console.log('zip code', eventZip);
     console.log('event desc', eventDescription);
+    this.eventsRef.push({
+      eventName,
+      eventAddress,
+      eventAddress2,
+      eventCity,
+      eventState,
+      eventZip,
+      eventDescription,
+    });
+    // Clear form
+    document.getElementById('add-event-form').reset();
+    this.setState(initialState);
   }
 
   render() {
@@ -83,7 +103,7 @@ class AddEvent extends Component {
           <h1>Add Event</h1>
           <Grid container spacing={16}>
             <Grid item xs={12} sm={12} md={6}>
-              <form className={classes.container} noValidate autoComplete="off" onSubmit={this.onSubmit}>
+              <form id="add-event-form" className={classes.container} noValidate autoComplete="off" onSubmit={this.onSubmit}>
                 <EventField
                   label="Event name"
                   id="event-name"
@@ -181,7 +201,7 @@ class AddEvent extends Component {
             </Grid>
           </Grid>
         </div>
-      </div >
+      </div>
     );
   }
 }

@@ -2,12 +2,6 @@
 import React, { Component } from 'react';
 // Importing React Router to add page routes.
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import Material UI components and styling
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
 // Import Events page
 import Events from './containers/Events';
 // Import Profile page
@@ -20,7 +14,7 @@ import Login from './containers/Login';
 import Landing from './containers/Landing';
 // Import Help page
 import Help from './containers/Help';
-// Import Foooter component
+// Import Footer component
 import Footer from './components/Footer';
 // Import Event Details component
 import EventDetails from './containers/EventDetails/EventDetails';
@@ -28,21 +22,8 @@ import EventDetails from './containers/EventDetails/EventDetails';
 import NavBar from './components/NavBar';
 // import Firebase
 import { auth, provider } from './firebase-config';
-// import Logo
-import logo from './images/edue_logo.png';
 // Import App css file
 import './App.css';
-
-const styles = {
-  card: {
-    minWidth: 275,
-    marginTop: 50,
-    borderSize: 5,
-    borderStyle: 'solid',
-    borderWidth: 3,
-    borderColor: 'var(--main-bg-color)',
-  },
-};
 
 class App extends Component {
   constructor() {
@@ -104,7 +85,6 @@ class App extends Component {
 
   render() {
     const { user } = this.state;
-    const { classes } = this.props;
     // console.log(user);
     return (<div className="App">
       <Router>
@@ -121,8 +101,17 @@ class App extends Component {
                   <Switch>
                     <Route exact path="/" component={Landing} />
                     <Route exact path="/events" component={Events} />
-                    <Route exact path="/profile" render={props => <Profile
-                      {...props} name={user.displayName} email={user.email} photo={user.photoURL} uid={user.uid}></Profile>}
+                    <Route
+                      exact
+                      path="/profile"
+                      render={props => (
+                        <Profile
+                          {...props}
+                          name={user.displayName}
+                          email={user.email}
+                          photo={user.photoURL}
+                          uid={user.uid}
+                        />)}
                     />
                     <Route exact path="/add" component={AddEvent} />
                     <Route exact path="/help" component={Help} />
@@ -134,35 +123,7 @@ class App extends Component {
               </div>
             )
             : (
-              <div className="main-content-section">
-                <Grid container spacing={16} justify="center" className="login-page">
-                  <Grid item xs={12} sm={12} md={6}>
-                    <img src={logo} alt="team logo" className="logo"></img>
-                  </Grid>
-                  <Grid item xs={12} sm={12} md={6}>
-                    <Typography variant="display1" className="app-title">
-                      Welcome to EduVents
-                    </Typography>
-                    <Card className={classes.card}>
-                      <CardContent>
-                        <Typography variant="display1">
-                          LOGIN
-                        </Typography>
-                        <Typography variant="body1" className="sub-title">
-                          Log in to find fun, educational activities and
-                          events to do with your kids.
-                        </Typography>
-                        <div className="login">
-                          <p>Login with Google to continue to site.</p>
-                          <button type="submit" className="loginBtn loginBtn--google" onClick={this.login}>
-                            Login with Google
-                          </button>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Grid>
-                </Grid>
-              </div>
+              <Login handleLogin={this.login} />
             )}
           <Footer />
         </div>
@@ -173,4 +134,4 @@ class App extends Component {
 }
 
 
-export default withStyles(styles)(App);
+export default App;

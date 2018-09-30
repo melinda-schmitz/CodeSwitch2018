@@ -111,7 +111,8 @@ class App extends Component {
                           email={user.email}
                           photo={user.photoURL}
                           uid={user.uid}
-                        />)}
+                        />
+                      )}
                     />
                     <Route exact path="/add" component={AddEvent} />
                     <Route exact path="/help" component={Help} />

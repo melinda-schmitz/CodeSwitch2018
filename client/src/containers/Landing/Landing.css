@@ -2,6 +2,7 @@
 	background-color: #CDD7D6 !important;
 	border: 1px solid var(--main-bg-color) !important ;
 	color: black !important;
+	margin-right: 20px !important;
 }
 
 .save-event-btn {

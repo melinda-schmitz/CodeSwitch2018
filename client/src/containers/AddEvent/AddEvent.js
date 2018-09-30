@@ -35,6 +35,7 @@ const styles = theme => ({
 });
 const initialState = {
   eventName: '',
+  eventLocation: '',
   eventAddress: '',
   eventAddress2: '',
   eventCity: '',
@@ -59,6 +60,7 @@ class AddEvent extends Component {
   onSubmit = e => {
     const {
       eventName,
+      eventLocation,
       eventAddress,
       eventAddress2,
       eventCity,
@@ -69,18 +71,15 @@ class AddEvent extends Component {
       eventDescription,
     } = this.state;
     e.preventDefault();
-    // this.restaurantsRef.push({ name: this.state.name });
-    console.log('city', eventName);
-    console.log('street address', eventAddress);
-    console.log('address line 2', eventAddress2);
-    console.log('city', eventCity);
-    console.log('state', eventState);
-    console.log('zip code', eventZip);
-    console.log('event desc', eventDescription);
 
     // Check For Errors
     if (eventName === '') {
       this.setState({ errors: { eventName: 'Event name is required.' } });
+      return;
+    }
+
+    if (eventLocation === '') {
+      this.setState({ errors: { eventLocation: 'Location is required.' } });
       return;
     }
 
@@ -121,6 +120,7 @@ class AddEvent extends Component {
 
     this.eventsRef.push({
       eventName,
+      eventLocation,
       eventAddress,
       eventAddress2,
       eventCity,
@@ -142,6 +142,7 @@ class AddEvent extends Component {
     const { classes } = this.props;
     const {
       eventName,
+      eventLocation,
       eventAddress,
       eventAddress2,
       eventCity,
@@ -198,6 +199,15 @@ class AddEvent extends Component {
                 />
               </Grid>
               <Grid item xs={12} sm={12} md={6}>
+                <EventField
+                  label="Location"
+                  id="location"
+                  name="eventLocation"
+                  onChange={this.onChange}
+                  fieldType="text"
+                  value={eventLocation}
+                  error={errors.eventLocation}
+                />
                 <EventField
                   label="Street address"
                   id="street-address"

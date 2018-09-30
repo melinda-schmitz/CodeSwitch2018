@@ -60,7 +60,9 @@ class EventCard extends Component {
               {event.eventName}
             </Typography>
             <Typography component="p" className={classes.eventInfo}>
-              <span className={classes.eventInfoType}>Address</span>
+              <span className={classes.eventInfoType}>Location</span>
+              <br />
+              {event.eventLocation}
               <br />
               {' '}
               {event.eventAddress}
@@ -90,12 +92,12 @@ class EventCard extends Component {
           <CardActions>
             <Grid container justify="flex-end">
               <Button className="app-btn view-details-btn" variant="contained" color="primary" size="small" component={Link} to="/eventDetails">
-                <span className={classes.btnText}>View Details</span>
+                <span className={classes.btnText}>More Info</span>
                 <i className="far fa-arrow-alt-circle-right fa-2x" />
               </Button>
               <Button className="app-btn delete-event-btn" variant="contained" color="primary" size="small">
-                <span className={classes.btnText}>Delete Event</span>
-                <i className="fas fa-trash" />
+                <span className={classes.btnText}>Interested</span>
+                <i class="far fa-thumbs-up" />
               </Button>
             </Grid>
           </CardActions>

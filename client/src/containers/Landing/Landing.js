@@ -38,14 +38,14 @@ class Landing extends Component {
         <div className="main-content-section">
           <Grid container spacing={16}>
             <Grid item xs={12} sm={12} md={8}>
-              <h1>Today&#39;s Events</h1>
+              <h1>Upcoming events</h1>
               <EventCard
                 events={events}
               />
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
               <DayPicker />
-              <h1>Upcoming Events</h1>
+              <h1>Events I&#39;m interested in</h1>
               <UpcomingEvents />
             </Grid>
           </Grid>

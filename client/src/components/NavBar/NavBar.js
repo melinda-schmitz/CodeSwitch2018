@@ -119,6 +119,7 @@ class NavBar extends Component {
             </Typography>
             <Typography color="inherit">
               Welcome
+              {' '}
               {name}
             </Typography>
             <Button color="inherit" className={classes.loginButton} component={Link} to="/profile">

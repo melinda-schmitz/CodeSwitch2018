@@ -10,15 +10,22 @@ import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 // import Logo
 import logo from '../../images/edue_logo.png';
+// import css
+import './Login.css';
+// import simple navbar component
+import NavBarSimple from '../../components/NavBar/NavBarSimple';
 
 const styles = {
   card: {
     minWidth: 275,
-    marginTop: 50,
+    marginTop: 80,
     borderSize: 5,
     borderStyle: 'solid',
     borderWidth: 3,
     borderColor: 'var(--main-bg-color)',
+  },
+  loginContent: {
+    alignSelf: 'auto',
   },
 };
 
@@ -29,34 +36,37 @@ class Login extends Component {
     const { classes, handleLogin } = this.props;
 
     return (
-      <div className="main-content-section">
-        <Grid container spacing={16} justify="center" className="login-page">
-          <Grid item xs={12} sm={12} md={6}>
-            <img src={logo} alt="team logo" className="logo" />
-          </Grid>
-          <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="display1" className="app-title">
-              Welcome to EduVents
+      <div>
+        <NavBarSimple />
+        <div className="main-content-section">
+          <Grid container spacing={16} justify="center" className="login-page">
+            <Grid item xs={12} sm={12} md={6} className={classes.loginImage}>
+              <img src={logo} alt="team logo" className="logo" />
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} className={classes.loginContent}>
+              <Typography variant="display1" className="app-title">
+                Welcome to EduVents
             </Typography>
-            <Card className={classes.card}>
-              <CardContent>
-                <Typography variant="display1">
-                  LOGIN
+              <Card className={classes.card}>
+                <CardContent>
+                  <Typography variant="display1">
+                    LOGIN
                 </Typography>
-                <Typography variant="body1" className="sub-title">
-                  Log in to find fun, educational activities and
-                  events to do with your kids.
+                  <Typography variant="body1" className="sub-title">
+                    Log in to find fun, educational activities and
+                    events to do with your kids.
                 </Typography>
-                <div className="login">
-                  <p>Login with Google to continue to site.</p>
-                  <button type="submit" className="loginBtn loginBtn--google" onClick={handleLogin}>
-                    Login with Google
+                  <div className="login">
+                    <p>Login with Google to continue to site.</p>
+                    <button type="submit" className="loginBtn loginBtn--google" onClick={handleLogin}>
+                      Login with Google
                   </button>
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
-        </Grid>
+        </div>
       </div>
     );
   }

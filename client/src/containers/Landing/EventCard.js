@@ -97,7 +97,7 @@ class EventCard extends Component {
               </Button>
               <Button className="app-btn delete-event-btn" variant="contained" color="primary" size="small">
                 <span className={classes.btnText}>Interested</span>
-                <i class="far fa-thumbs-up" />
+                <i className="far fa-thumbs-up" />
               </Button>
             </Grid>
           </CardActions>

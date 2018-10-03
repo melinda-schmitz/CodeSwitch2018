@@ -3,16 +3,12 @@ import React, { Component } from 'react';
 // import material ui components and styling
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import DayPicker from 'react-day-picker';
 // import other components
 import EventCard from './EventCard';
 import UpcomingEvents from './UpcomingEvents';
+import Calendar from './Calendar';
 // import firebase database
 import { database } from '../../firebase-config';
-
-// import day picker css
-import 'react-day-picker/lib/style.css';
-
 
 class Landing extends Component {
   constructor(props) {
@@ -36,15 +32,15 @@ class Landing extends Component {
     return (
       <div>
         <div className="main-content-section">
-          <Grid container spacing={16}>
+          <Grid container spacing={24}>
             <Grid item xs={12} sm={12} md={8}>
               <h1>Upcoming events</h1>
+              <Calendar />
               <EventCard
                 events={events}
               />
             </Grid>
             <Grid item xs={12} sm={12} md={4}>
-              <DayPicker />
               <h1>Events I&#39;m interested in</h1>
               <UpcomingEvents />
             </Grid>

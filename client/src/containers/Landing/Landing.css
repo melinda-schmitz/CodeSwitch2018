@@ -10,3 +10,7 @@
 	border: 1px solid var(--main-bg-color) !important ;
 	color: black !important;
 }
+
+.calendar-btn {
+	margin-right: 20px !important;
+}
